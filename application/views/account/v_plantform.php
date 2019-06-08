@@ -24,19 +24,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--  Light Bootstrap Table core CSS    -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/light-bootstrap-dashboard.css?v=1.4.0" type="text/css">
 
-    <!-- Data Table CSS -->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/demo.css" type="text/css">
 
 
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" media="all" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" media="all" href="<?php echo base_url()?>http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
 
-    <link rel="stylesheet" media="all" href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" type="text/css">
-
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media="all" href="<?php echo base_url()?>'http://fonts.googleapis.com/css?family=Roboto:400,700,300" type="text/css">
 
 
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/pe-icon-7-stroke.css" type="text/css">
@@ -63,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <ul class="nav">
-                    <li class="active">
+                    <li  class="active">
                         <a href="<?php echo base_url()?>index.php/Dashboard">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
@@ -115,105 +111,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Dashboard</a>
+                        <a class="navbar-brand" href="#">Create New Plant</a>
                     </div>
                 </div>
             </nav>
 
 
-            <div class="content">
+            <div  class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="card">
-
-                                <div class="header">
-                                    <h2 class="title">44</h2>
-                                    <p class="category">PLAN</p>
+                        <div style="background-color:#E6E4E4; padding : 10px" class="col-md-6">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Plant Code</label>
+                                    <input type="Number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Code">
                                 </div>
-                                <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Plantform" class="btn btn-default">Create Plan</a>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Plant</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Plan">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-
-                                <div class="header">
-                                    <h2 class="title">39</h2>
-                                    <p class="category">ASSET</p>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Description</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
                                 </div>
-                                <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Assetform" class="btn btn-default">Create Asset</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-
-                                <div class="header">
-                                    <h2 class="title">29</h2>
-                                    <p class="category">Subsystem</p>
-                                </div>
-                                <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/subsystemform" class="btn btn-default">Create Subsystem</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="header">
-                                    <h2 class="title">20</h2>
-                                    <p class="category">???</p>
-                                </div>
-
-                                <div class="content">
-                                    <a href="http://google.com" class="btn btn-default">???</a>
-                                </div>
-                            </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
-
-                    <!-- INI TABEL GRAFIK NYA -->
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card ">
-                                <div class="header">
-                                    <h4 class="title">2014 Sales</h4>
-                                    <p class="category">All products including Taxes</p>
-                                </div>
-                                <div class="content">
-                                    <div id="chartActivity" class="ct-chart"></div>
-
-                                    <div class="footer">
-                                        <div class="legend">
-                                            <i class="fa fa-circle text-info"></i> COUR
-                                            <i class="fa fa-circle text-danger"></i> RAM
-                                        </div>
-                                        <hr>
-                                        <div class="stats">
-                                            <i class="fa fa-check"></i> Data information certified
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <p class="copyright pull-right">
-                        &copy; <script>
-                            document.write(new Date().getFullYear())
-
-                        </script> <a href="https://bie.telkomuniversity.ac.id/">Teknik Industri</a>, Telkom University
-                    </p>
-                </div>
-            </footer>
 
         </div>
     </div>
@@ -229,9 +157,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--  Charts Plugin -->
 <script src="<?php echo base_url()?>assets/js/chartist.min.js"></script>
 
-<!-- Page level plugin JavaScript-->
-<script src="<?php echo base_url()?>assets/chart.js/Chart.min.js"></script>
-
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url()?>assets/js/bootstrap-notify.js"></script>
 
@@ -243,11 +168,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="<?php echo base_url()?>assets/js/demo.js"></script>
-
-<!-- Demo scripts for this page-->
-<script src="<?php echo base_url()?>assets/js/chart/chart-area-demo.js"></script>
-<script src="<?php echo base_url()?>assets/js/chart/chart-bar-demo.js"></script>
-<script src="<?php echo base_url()?>assets/js/chart/chart-pie-demo.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
