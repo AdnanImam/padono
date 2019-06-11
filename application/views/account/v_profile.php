@@ -24,6 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--  Light Bootstrap Table core CSS    -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/light-bootstrap-dashboard.css?v=1.4.0" type="text/css">
 
+    <!-- Upload Form plugin CSS-->
+    <link href="<?php echo base_url()?>assets/css/uploadform.css" rel="stylesheet">
+
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/demo.css" type="text/css">
@@ -42,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-6.png">
+        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-7.png">
 
             <!--
 
@@ -74,13 +77,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo base_url()?>index.php/Ram">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Random Acsess Memory</p>
+                            <p>Reliability Availability Maintainability</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>index.php/Tabel">
+                        <a href="<?php echo base_url()?>index.php/Masterdata">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Master Data</p>
                         </a>
                     </li>
                     <li class="active">
@@ -113,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </button>
                         <a class="navbar-brand" href="#">Profile</a>
                     </div>
-                   </div>
+                </div>
             </nav>
 
 
@@ -121,15 +124,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="container-fluid">
                     <div class="row">
 
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                            Launch demo modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade show " id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="shadow modal-content ">
+                                    <div class="modal-header bg-danger ">
+                                        <h5 class="modal-title text-white" id="exampleModalLongTitle">Upload File</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" align="center">
+                                         <img src="<?php echo base_url()?>assets/img/xlsicon.png" alt="Card image cap" style="margin:5px">
+                                        <p class="category">Masukkan data Failure Event</p>
+                                        <form>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                        </form>
+                                        <div class="modal-footer ">
+                                            <div class="col-md-12">
+                                                <div align="center">
+                                                    <button type="button" class="btn btn-primary btn-fill "> Upload</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
                     </div>
-                    <div class="row">
-
-                    </div>
-
-
                 </div>
             </div>
-
 
             <footer class="footer">
                 <div class="container-fluid">
@@ -148,6 +184,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </body>
 
+
 <!--   Core JS Files   -->
 <script src="<?php echo base_url()?>assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 
@@ -159,6 +196,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url()?>assets/js/bootstrap-notify.js"></script>
 
+<!-- Upload Form   -->
+<script src="<?php echo base_url()?>assets/js/uploadform.js"></script>
+
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="<?php echo base_url()?>https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
@@ -167,6 +207,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="<?php echo base_url()?>assets/js/demo.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function() {

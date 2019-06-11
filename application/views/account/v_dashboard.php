@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-6.png">
+        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-7.png">
 
             <!--
 
@@ -78,13 +78,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo base_url()?>index.php/Ram">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Random Acsess Memory</p>
+                            <p>Reliability Availability Maintainability</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>index.php/Tabel">
+                        <a href="<?php echo base_url()?>index.php/Masterdata">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Master Data</p>
                         </a>
                     </li>
                     <li>
@@ -120,7 +120,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </nav>
 
-
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -132,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <p class="category">PLAN</p>
                                 </div>
                                 <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Plantform" class="btn btn-default">Create Plan</a>
+                                    <a href="<?php echo base_url()?>index.php/Plantform" class="btn btn-primary btn-fill">Create Plan</a>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <p class="category">ASSET</p>
                                 </div>
                                 <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Assetform" class="btn btn-default">Create Asset</a>
+                                    <a href="<?php echo base_url()?>index.php/Assetform" class="btn btn-primary btn-fill">Create Asset</a>
                                 </div>
                             </div>
                         </div>
@@ -156,10 +155,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <p class="category">Subsystem</p>
                                 </div>
                                 <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/subsystemform" class="btn btn-default">Create Subsystem</a>
+                                    <a href="<?php echo base_url()?>index.php/Subsystemform" class="btn btn-primary btn-fill">Create Subsystem</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="header">
@@ -168,7 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
 
                                 <div class="content">
-                                    <a href="http://google.com" class="btn btn-default">???</a>
+                                    <a href="http://google.com"  class="btn btn-primary btn-fill ">???</a>
                                 </div>
                             </div>
                         </div>

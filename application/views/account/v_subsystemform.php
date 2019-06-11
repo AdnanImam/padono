@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -20,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Animation library for notifications   -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/animate.min.css" type="text/css">
+
 
     <!--  Light Bootstrap Table core CSS    -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/light-bootstrap-dashboard.css?v=1.4.0" type="text/css">
@@ -42,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-6.png">
+        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-7.png">
 
             <!--
 
@@ -69,19 +71,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <a href="<?php echo base_url()?>index.php/Cour">
                             <i class="pe-7s-vector"></i>
                             <p>Cost Of Unreliability</p>
+
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo base_url()?>index.php/Ram">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Random Acsess Memory</p>
+                            <p>Reliability Availability Maintainability</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo base_url()?>index.php/Tabel">
+                    <li class="dropdown">
+                        <a href="<?php echo base_url()?>index.php/Masterdata">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Master Data</p>
                         </a>
+
                     </li>
                     <li>
                         <a href="<?php echo base_url()?>index.php/Profile">
@@ -123,8 +127,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div style="background-color:#E6E4E4; padding : 10px" class="col-md-6">
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">AssetSystem</label>
-                                     <input type="text" list="cars" class="form-control" placeholder="Choice a Asset" />
+                                    <label for="inputsubsystem">AssetSystem</label>
+                                    <input type="text" list="cars" class="form-control" placeholder="Choice a Asset" />
                                     <datalist id="cars">
                                         <option>x</option>
                                         <option>x</option>
@@ -147,6 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>

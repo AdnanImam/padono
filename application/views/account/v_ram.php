@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-6.png">
+        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-7.png">
 
             <!--
 
@@ -74,13 +74,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="active">
                         <a href="<?php echo base_url()?>index.php/Ram">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Random Acsess Memory</p>
+                            <p>Reliability Availability Maintainability </p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>index.php/Tabel">
+                        <a href="<?php echo base_url()?>index.php/Masterdata">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Master Data</p>
                         </a>
                     </li>
                     <li>
@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Random Acsess Memori</a>
+                        <a class="navbar-brand" href="#">Reliability Availability Maintainability</a>
                     </div>
                 </div>
             </nav>

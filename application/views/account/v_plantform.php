@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-6.png">
+        <div class="sidebar" data-color="red" data-image="<?php echo base_url()?>assets/img/sidebar-7.png">
 
             <!--
 
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <ul class="nav">
-                    <li  class="active">
+                    <li class="active">
                         <a href="<?php echo base_url()?>index.php/Dashboard">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
@@ -74,13 +74,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li>
                         <a href="<?php echo base_url()?>index.php/Ram">
                             <i class="pe-7s-news-paper"></i>
-                            <p>Random Acsess Memory</p>
+                            <p>Reliability Availability Maintainability</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>index.php/Tabel">
+                        <a href="<?php echo base_url()?>index.php/Masterdata">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Master Data</p>
                         </a>
                     </li>
                     <li>
@@ -116,8 +116,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </nav>
 
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">
+                    <a href="<?php echo base_url()?>index.php/Dashboard">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">Plant</li>
+            </ol>
 
-            <div  class="content">
+            <div class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div style="background-color:#E6E4E4; padding : 10px" class="col-md-6">

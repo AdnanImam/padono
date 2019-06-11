@@ -1,7 +1,7 @@
  <?php
  defined('BASEPATH') OR exit('No direct script access allowed');
  
- class Tabel extends CI_Controller {
+ class Masterdata extends CI_Controller {
      function __construct(){
          parent::__construct();
          $this->simple_login->cek_login();
@@ -9,6 +9,6 @@
  
      //Load Halaman dashboard
      public function index() {
-         $this->load->view('account/v_tabel');
+         $this->load->view('account/v_masterdata');
      }
  }
