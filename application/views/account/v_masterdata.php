@@ -58,6 +58,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     -->
 
             <div class="sidebar-wrapper">
+                <div class="col-md-12" align="center">
+                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px" >
+                </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
                         WELLCOME <?php echo ucfirst($this->session->userdata('username')); ?>!
@@ -231,7 +234,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
                             </div>
                         </div>
-                    </div>
+                    </div> <!-- Row 1-->
+                    
                     <div class="row">
                         <div class="col-md-12 ">
                             <div class="card">
@@ -319,10 +323,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
 
-                    </div>
+                    </div> <!-- Row 2-->
                     <div class="row">
 
-                    </div>
+                    </div> <!-- Row 3-->
                     <div class="row">
                         <div class="col-md-3">
                             <div class="card mb-3 border-dark">
@@ -553,7 +557,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <!-- Row 4-->
                 </div> <!-- Container -->
             </div> <!-- Content-->
         </div>

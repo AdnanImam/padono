@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()?>assets/img/favicon.png">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Beranda | PA DONO</title>
+    <title>Beranda | Couram Analys</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <link href="<?php echo base_url()?>assets/gaia/css/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/gaia/css/gaia.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
                     <span class="icon-bar bar3"></span>
                 </button>
                 <a href="http://www.creative-tim.com" class="navbar-brand">
-                    Beranda | Proyek Akhir Dono
+                    Beranda | Proyek Akhir MFH
                 </a>
             </div>
             <div class="collapse navbar-collapse">
@@ -56,9 +56,9 @@
             <div class="container">
                 <div class="content">
                     <div class="title-area">
-                        <p>Engine Analys</p>
-                        <h1 class="title-modern">Padono</h1>
-                        <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</h2>
+                        <p>Couram Analys</p>
+                        <h1 class="title-modern">Maintenance</h1>
+                        <h3>Tujuan perencanaan dari aplikasi ini adalah untuk memudahkan pengguna dalam menentukan interval kebijakan perawatan aset dan mengurangi biaya kegagalan pada suatu aset</h2>
                             <div class="separator line-separator">♦</div>
                     </div>
 
@@ -83,7 +83,7 @@
                 <div class="title-area">
                     <h2>Our Services</h2>
                     <div class="separator separator-danger">✻</div>
-                    <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best looking clothes.</p>
+                    <p class="description">We promise you to keep update a new design and more improvement. we build that by getting to know you, you needs and creating the best maintenance application.</p>
                 </div>
             </div>
             <div class="row">
@@ -93,7 +93,8 @@
                             <i class="pe-7s-vector"></i>
                         </div>
                         <h3>Cost Of Unreliability</h3>
-                        <p class="description">We make our design perfect for you. Our adjustment turn our clothes into your clothes.</p>
+                        <p class="description">About Cost of Unreliability, adalah hasil perhitungan biaya yang muncul dari masalah keandalan, dimana akan menunjukkan biaya-biaya yang dihasilkan oleh masing-masing equipment atau mesin dalam dalam sistem.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -101,8 +102,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-note2"></i>
                         </div>
-                        <h3>Tabel List</h3>
-                        <p class="description">We create a persona regarding the multiple wardrobe accessories that we provide..</p>
+                        <h3>User Guide</h3>
+                        <p class="description">we create a user guide for clue when you use this application.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -110,8 +111,8 @@
                         <div class="icon text-danger">
                             <i class="pe-7s-news-paper"></i>
                         </div>
-                        <h3>Random Acsess Memory</h3>
-                        <p class="description">We like to present the world with our work, so we make sure we spread the word regarding our clothes.</p>
+                        <h3>Reliability Availability Maintainability</h3>
+                        <p class="description">Merupakan sebuah metode yang dapat digunakan untuk memprediksi kinerja keandalan (Reliability), ketersediaan (Availability), dan kemampuan perawatan (Maintainability) dari suatu sistem atau komponen.</p>
                     </div>
                 </div>
             </div>
@@ -129,7 +130,7 @@
                         <div class="title-area">
                             <h2>Who We Are</h2>
                             <div class="separator separator-danger">✻</div>
-                            <p class="description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best looking clothes.</p>
+                            <p class="description"></p>
                         </div>
                     </div>
 
@@ -252,7 +253,7 @@
                 <div class="title-area">
                     <h2 class="text-white">Do you want to work with us?</h2>
                     <div class="separator line-separator">♦</div>
-                    <p class="description"> We are keen on creating a second skin for anyone with a sense of style! We design our clothes having our customers in mind and we never disappoint!</p>
+                    <p class="description"> We are keep on creating a new improvement for anyone with a sense of needs! we design our application web for customers in mind and we never never make you dissapoint!</p>
                 </div>
 
                 <div class="button-get-started">
