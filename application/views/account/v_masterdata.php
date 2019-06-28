@@ -24,21 +24,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--  Light Bootstrap Table core CSS    -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/light-bootstrap-dashboard.css?v=1.4.0" type="text/css">
 
-    <!-- Page level plugin CSS-->
-    <link href="<?php echo base_url()?>assets/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-
-    <!-- Upload Form plugin CSS-->
-    <link href="<?php echo base_url()?>assets/css/uploadform.css" rel="stylesheet">
-
+    <!-- Data Table CSS -->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/demo.css" type="text/css">
 
+    <!-- Pop Up CSS    -->
+    <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/popup.css" type="text/css">
+
 
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" media="all" href="<?php echo base_url()?>http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" media="all" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
 
-    <link rel="stylesheet" media="all" href="<?php echo base_url()?>'http://fonts.googleapis.com/css?family=Roboto:400,700,300" type="text/css">
+    <link rel="stylesheet" media="all" href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" type="text/css">
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/pe-icon-7-stroke.css" type="text/css">
@@ -59,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px" >
+                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
@@ -124,6 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </nav>
+
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -132,110 +134,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="breadcrumb-item active">Tables</li>
             </ol>
 
+
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-
                         <div class="col-md-6">
-                            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                                <div class="card-body d-flex flex-column align-items-start">
-                                    <strong class="d-inline-block mb-2 text-primary">Failure Event</strong>
-                                    <h6 class="mb-0">
-                                        <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
-                                    </h6>
-                                    <div class="mb-1 text-muted small">Nov 12</div>
-                                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary btn-fill" role="button" data-toggle="modal" data-target="#modalFailureEvent">
-                                        Upload Data
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade show " id="modalFailureEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
-                                        <div class="modal-dialog modal-lg" role="document">
-                                            <div class="shadow modal-content ">
-                                                <div class="modal-header bg-danger ">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Upload File</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body" align="center">
-                                                    <img src="<?php echo base_url()?>assets/img/xlsicon.png" alt="Card image cap" style="margin:5px">
-                                                    <p class="category">Masukkan data Failure Event</p>
-                                                    <form>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile">
-                                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                        </div>
-                                                    </form>
-                                                    <div class="modal-footer ">
-                                                        <div class="col-md-12">
-                                                            <div align="center">
-                                                                <button type="button" class="btn btn-primary btn-fill "> Upload</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                            <div class="card">
+                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/event.png" alt="Card image cap" style="width:100%; height: auto;">
+                                <div class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Failure Event</h3>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary btn-fill">Upload</a>
                                 </div>
-                                <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                                <div class="card-body d-flex flex-column align-items-start">
-                                    <strong class="d-inline-block mb-2 text-primary">Failure Histori</strong>
-                                    <h6 class="mb-0">
-                                        <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
-                                    </h6>
-                                    <div class="mb-1 text-muted small">Nov 12</div>
-                                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary btn-fill" role="button" data-toggle="modal" data-target="#modalFailureEvent">
-                                        Upload Data
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade show " id="modalFailureEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
-                                        <div class="modal-dialog modal-lg" role="document">
-                                            <div class="shadow modal-content ">
-                                                <div class="modal-header bg-danger ">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Upload File</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body" align="center">
-                                                    <img src="<?php echo base_url()?>assets/img/xlsicon.png" alt="Card image cap" style="margin:5px">
-                                                    <p class="category">Masukkan data Failure Event</p>
-                                                    <form>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile">
-                                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                        </div>
-                                                    </form>
-                                                    <div class="modal-footer ">
-                                                        <div class="col-md-12">
-                                                            <div align="center">
-                                                                <button type="button" class="btn btn-primary btn-fill "> Upload</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="card">
+                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/event.png" alt="Card image cap" style="width:100%; height: auto;">
+                                <div class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Failure History</h3>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary btn-fill">Upload</a>
                                 </div>
-                                <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
                             </div>
                         </div>
-                    </div> <!-- Row 1-->
-                    
+                    </div>
                     <div class="row">
                         <div class="col-md-12 ">
                             <div class="card">
@@ -268,12 +191,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div align="center" class="col-md-12">
-                                        <div class="card">
-                                            <div class="content">
-                                                <a href="#" class="btn btn-info btn-fill">Calculate TTR/TTF</a>
-                                            </div>
-                                        </div>
+                                    <div style="text-align:center">
+                                        <a href="#" class="btn btn-info btn-fill">Calculate TTR/TTF</a>
                                     </div>
                                 </div>
                             </div>
@@ -302,266 +221,184 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div align="center" class="col-md-12">
-                                        <div class="card">
-                                            <div class="row justify-content-md-center">
-                                                <div class="header">
-                                                    <h2 class="title  text-success">0</h2>
-                                                    <p class="category text-success">MTTR</p>
-                                                </div>
-                                                <div class="header">
-                                                    <h2 class="title  text-primary">0</h2>
-                                                    <p class="category text-primary">MTTF</p>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <a href="#" class="btn btn-info btn-fill">Calculate MTTF/MTTR</a>
-                                            </div>
-                                        </div>
+
+                                </div>
+                            </div>
+                            <div align="center" class="card col-md-12">
+                                <div class="col-md-6">
+                                    <div class="col">
+                                        <h2 class="title  text-success">0</h2>
+                                        <p class="category text-success">MTTR</p>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col">
+                                        <h2 class="title  text-primary">0</h2>
+                                        <p class="category text-primary">MTTF</p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <a href="#" class="btn btn-info btn-fill">Calculate MTTF/MTTR</a>
                                 </div>
                             </div>
                         </div>
-
                     </div> <!-- Row 2-->
                     <div class="row">
-
-                    </div> <!-- Row 3-->
-                    <div class="row">
                         <div class="col-md-3">
-                            <div class="card mb-3 border-dark">
-                                <img class="card-img-top" src="//placeimg.com/290/180/any" alt="Card image cap">
-                                <div class="card-body">
-                                    <strong class="d-inline-block mb-2 text-danger">Failure Function</strong>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
+                                <div align="center" class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Failure Function</h3>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm1()">Go somewhere</a>
+                                    <div class="form-popup" id="myForm1">
+                                        <form action="/action_page.php" class="form-container">
+                                            <h3>Create Failure Function</h3>
 
-                                    <!-- MODAL BUTTON POP UP -->
-                                    <button type="button" class="btn btn-danger btn-fill" data-toggle="modal" data-target="#failureFunctionModal">
-                                        create new
-                                    </button>
-                                    <!-- MODAL POP UP -->
-                                    <div class="modal fade" id="failureFunctionModal" aria-hidden="true" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="shadow modal-content" style="background-color:#E6E4E4">
-                                                <div class="modal-header bg-danger">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Create Failure Function</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputSubSystem">SubSystem</label>
-                                                            <input type="text" list="subsystem" class="form-control" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                            <datalist id="subsystem">
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                            </datalist>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputNumber">Number</label>
-                                                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputName">Name</label>
-                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputDesc">Description</label>
-                                                            <textarea class="form-control rounded-0 " id="Description" rows="4" placeholder="Enter Description"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary btn-fill" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary btn-fill">Create New</button>
-                                                </div>
+                                            <div class="form-group">
+                                                <label for="inputSubSystem"><b>SubSystem</b></label>
+                                                <input type="text" list="subsystem" id="inputSubSystem" placeholder="Choice Subsystem">
+                                                <datalist id="subsystem">
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                </datalist>
                                             </div>
-                                        </div>
+
+                                            <label for="FailureNumber"><b>Number</b></label>
+                                            <input type="number" placeholder="Enter Number" name="FailureNumber" required>
+
+                                            <label for="FailureName"><b>Name</b></label>
+                                            <input type="text" placeholder="Enter Name" name="FailureName" required>
+
+                                            <label for="psw"><b>Deskripsi</b></label>
+                                            <textarea type="text" placeholder="Deskripsi" name="name" required></textarea>
+
+                                            <button type="submit" class="btn">Create</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card mb-3 border-dark">
-                                <img class="card-img-top" src="//placeimg.com/290/180/any" alt="Card image cap">
-                                <div class="card-body">
-                                    <strong class="d-inline-block mb-2 text-danger">Failure Mode</strong>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
+                                <div align="center" class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Failure Event</h3>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- MODAL BUTTON POP UP -->
-                                    <button type="button" class="btn btn-danger btn-fill" data-toggle="modal" data-target="#failureFunctionModal">
-                                        create new
-                                    </button>
-                                    <!-- MODAL POP UP -->
-                                    <div class="modal fade" id="failureFunctionModal" aria-hidden="true" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="shadow modal-content" style="background-color:#E6E4E4">
-                                                <div class="modal-header bg-danger">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Create Failure Function</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputSubSystem">SubSystem</label>
-                                                            <input type="text" list="subsystem" class="form-control" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                            <datalist id="subsystem">
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                            </datalist>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputNumber">Number</label>
-                                                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputName">Name</label>
-                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputDesc">Description</label>
-                                                            <textarea class="form-control rounded-0 " id="Description" rows="4" placeholder="Enter Description"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary btn-fill" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary btn-fill">Create New</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm2()">Go somewhere</a>
+                                    <div class="form-popup" id="myForm2">
+                                        <form action="/action_page.php" class="form-container">
+                                            <h3>Create Failure Event</h3>
 
+                                            <div class="form-group">
+                                                <label for="inputSubSystem"><b>SubSystem</b></label>
+                                                <input type="text" list="subsystem" id="inputSubSystem" placeholder="Choice Subsystem">
+                                                <datalist id="subsystem">
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                </datalist>
+                                            </div>
+
+                                            <label for="FailureNumber"><b>Number</b></label>
+                                            <input type="number" placeholder="Enter Number" name="FailureNumber" required>
+
+                                            <label for="FailureName"><b>Name</b></label>
+                                            <input type="text" placeholder="Enter Name" name="FailureName" required>
+
+                                            <label for="psw"><b>Deskripsi</b></label>
+                                            <textarea type="text" placeholder="Deskripsi" name="name" required></textarea>
+
+                                            <button type="submit" class="btn">Create</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card mb-3 border-dark">
-                                <img class="card-img-top" src="//placeimg.com/290/180/any" alt="Card image cap">
-                                <div class="card-body">
-                                    <strong class="d-inline-block mb-2 text-danger">Failure Cause</strong>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
+                                <div align="center" class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Failure Event</h3>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- MODAL BUTTON POP UP -->
-                                    <button type="button" class="btn btn-danger btn-fill" data-toggle="modal" data-target="#failureFunctionModal">
-                                        create new
-                                    </button>
-                                    <!-- MODAL POP UP -->
-                                    <div class="modal fade" id="failureFunctionModal" aria-hidden="true" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="shadow modal-content" style="background-color:#E6E4E4">
-                                                <div class="modal-header bg-danger">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Create Failure Function</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputSubSystem">SubSystem</label>
-                                                            <input type="text" list="subsystem" class="form-control" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                            <datalist id="subsystem">
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                            </datalist>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputNumber">Number</label>
-                                                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputName">Name</label>
-                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputDesc">Description</label>
-                                                            <textarea class="form-control rounded-0 " id="Description" rows="4" placeholder="Enter Description"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary btn-fill" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary btn-fill">Create New</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm3()">Go somewhere</a>
+                                    <div class="form-popup" id="myForm3">
+                                        <form action="/action_page.php" class="form-container">
+                                            <h3>Create Failure Function</h3>
 
+                                            <div class="form-group">
+                                                <label for="inputSubSystem"><b>SubSystem</b></label>
+                                                <input type="text" list="subsystem" id="inputSubSystem" placeholder="Choice Subsystem">
+                                                <datalist id="subsystem">
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                    <option>x</option>
+                                                </datalist>
+                                            </div>
+
+                                            <label for="FailureNumber"><b>Number</b></label>
+                                            <input type="number" placeholder="Enter Number" name="FailureNumber" required>
+
+                                            <label for="FailureName"><b>Name</b></label>
+                                            <input type="text" placeholder="Enter Name" name="FailureName" required>
+
+                                            <label for="psw"><b>Deskripsi</b></label>
+                                            <textarea type="text" placeholder="Deskripsi" name="name" required></textarea>
+
+                                            <button type="submit" class="btn">Create</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm3()">Close</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card mb-3 border-dark">
-                                <img class="card-img-top" src="//placeimg.com/290/180/any" alt="Card image cap">
-                                <div class="card-body">
-                                    <strong class="d-inline-block mb-2 text-danger">Effect </strong>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
+                                <div align="center" class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Failure Event</h3>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- MODAL BUTTON POP UP -->
-                                    <button type="button" class="btn btn-danger btn-fill" data-toggle="modal" data-target="#failureFunctionModal">
-                                        create new
-                                    </button>
-                                    <!-- MODAL POP UP -->
-                                    <div class="modal fade" id="failureFunctionModal" aria-hidden="true" data-backdrop="false">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="shadow modal-content" style="background-color:#E6E4E4">
-                                                <div class="modal-header bg-danger">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Create Failure Function</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputSubSystem">SubSystem</label>
-                                                            <input type="text" list="subsystem" class="form-control" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                            <datalist id="subsystem">
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                                <option>x</option>
-                                                            </datalist>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputNumber">Number</label>
-                                                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputName">Name</label>
-                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="text-dark" for="inputDesc">Description</label>
-                                                            <textarea class="form-control rounded-0 " id="Description" rows="4" placeholder="Enter Description"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary btn-fill" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary btn-fill">Create New</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm4()">Go somewhere</a>
+                                    <div class="form-popup" id="myForm4">
+                                        <form action="/action_page.php" class="form-container">
+                                            <h1>Login</h1>
+
+                                            <label for="email"><b>Email</b></label>
+                                            <input type="text" placeholder="Enter Email" name="email" required>
+
+                                            <label for="psw"><b>Password</b></label>
+                                            <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                            <button type="submit" class="btn">Login</button>
+                                            <button type="button" class="btn cancel" onclick="closeForm4()">Close</button>
+                                        </form>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- Row 4-->
-                </div> <!-- Container -->
-            </div> <!-- Content-->
+                    </div>
+                </div><!-- Container -->
+            </div><!-- Content -->
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p class="copyright pull-right">
+                        &copy; <script>
+                            document.write(new Date().getFullYear())
+
+                        </script> <a href="https://bie.telkomuniversity.ac.id/">Teknik Industri</a>, Telkom University
+                    </p>
+                </div>
+            </footer>
+
         </div>
-    </div>
     </div>
 
 
@@ -575,21 +412,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--  Charts Plugin -->
 <script src="<?php echo base_url()?>assets/js/chartist.min.js"></script>
 
+<!-- Page level plugin JavaScript-->
+<script src="<?php echo base_url()?>assets/chart.js/Chart.min.js"></script>
+
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url()?>assets/js/bootstrap-notify.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-
-</script>
-
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="<?php echo base_url()?>https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
-<!-- Upload Form   -->
-<script src="<?php echo base_url()?>assets/js/uploadform.js"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="<?php echo base_url()?>assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
@@ -597,12 +427,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="<?php echo base_url()?>assets/js/demo.js"></script>
 
-<!-- Page level plugin JavaScript-->
-<script src="<?php echo base_url()?>assets/datatables/jquery.dataTables.js"></script>
-<script src="<?php echo base_url()?>assets/datatables/dataTables.bootstrap4.js"></script>
-
 <!-- Demo scripts for this page-->
-<script src="<?php echo base_url()?>assets/js/demo/datatables-demo.js"></script>
+<script src="<?php echo base_url()?>assets/js/chart/chart-area-demo.js"></script>
+<script src="<?php echo base_url()?>assets/js/chart/chart-bar-demo.js"></script>
+<script src="<?php echo base_url()?>assets/js/chart/chart-pie-demo.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -619,6 +447,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
 
     });
+
+</script>
+<script>
+    function openForm1() {
+        document.getElementById("myForm1").style.display = "block";
+    }
+
+    function closeForm1() {
+        document.getElementById("myForm1").style.display = "none";
+    }
+
+    function openForm2() {
+        document.getElementById("myForm2").style.display = "block";
+    }
+
+    function closeForm2() {
+        document.getElementById("myForm2").style.display = "none";
+    }
+
+    function openForm3() {
+        document.getElementById("myForm3").style.display = "block";
+    }
+
+    function closeForm3() {
+        document.getElementById("myForm3").style.display = "none";
+    }
+    
+    function openForm4() {
+        document.getElementById("myForm4").style.display = "block";
+    }
+
+    function closeForm4() {
+        document.getElementById("myForm4").style.display = "none";
+    }
 
 </script>
 

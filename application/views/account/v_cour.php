@@ -27,6 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/demo.css" type="text/css">
+    <!-- Pop Up CSS    -->
+    <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/popup.css" type="text/css">
 
 
     <!--     Fonts and icons     -->
@@ -53,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px" >
+                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
@@ -102,6 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </li>
                 </ul>
             </div>
+
         </div>
 
         <div class="main-panel">
@@ -123,12 +126,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/cour1.jpg" alt="Card image cap" style="width:100%; height: auto;">
+                                <div class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Corrective Cour</h3>
+                                    <div align="center" class="col">
+                                        <h2 class="title  text-success">Rp. 0</h2>
+                                        <p class="category text-success">Corrective Cour</p>
+                                    </div>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/cour2.jpg" alt="Card image cap" style="width:100%; height: auto;">
+                                <div class="card-body" style="padding:10px">
+                                    <h3 class="card-title">Downtime Cour</h3>
+                                    <div align="center" class="col">
+                                        <h2 class="title  text-danger">Rp. 0</h2>
+                                        <p class="category text-danger">Downtime Cour</p>
+                                    </div>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
 
                     </div>
 
+
+                    <a href="#" class="open-button" onclick="openForm()">Currency</a>
+                    <div class="form-popup" id="myForm">
+                        <form action="/action_page.php" class="form-container">
+                            <h2>Currency</h2>
+
+                            <label for="email"><b>Masukkan Nilai Tukar Rupiah Ke Dollar </b></label>
+                            <input type="number" placeholder="Nilai Tukar" name="currency" required>
+
+                            <button type="submit" class="btn">Update</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
 
                 </div>
             </div>
@@ -186,6 +227,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
 
     });
+
+</script>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
 
 </script>
 
