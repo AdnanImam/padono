@@ -6,5 +6,6 @@
       public function index()
       {
            $this->load->view('account/beranda');
+           echo "test";
       }
  }
