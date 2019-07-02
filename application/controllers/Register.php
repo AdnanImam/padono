@@ -26,12 +26,11 @@
              $data['email']  =    $this->input->post('email');
              $data['password'] =    md5($this->input->post('password'));
              
- 
              $this->m_account->daftar($data);
-             
-             $pesan['message'] =    "Pendaftaran berhasil";
-             
-             $this->load->view('account/v_success',$pesan);
+            
+             session_start();
+             $_SESSION['reg-success'] = "Pendaftaran berhasil, silahkan login";
+             redirect('login');
          }
      }
      

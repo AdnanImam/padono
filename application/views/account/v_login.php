@@ -20,12 +20,15 @@
  <body class="text-center">
      <div class="form-signin">
          <img class="mb-4" src="../../assets/image/icon.jpg" alt="" width="72" height="72">
-         <h1 class="h3 mb-3 font-weight-normal">LOGIN PA DONO</h1>
+         <h1 class="h3 mb-3 font-weight-normal">LOGIN COURAM</h1>
          <?php
-                 if($this->session->flashdata('sukses')) {
-                     echo '<p class="warning" style="margin: 10px 20px;">'.$this->session->flashdata('sukses').'</p>';
-                    }
-                 ?>
+            if($this->session->flashdata('sukses')) {
+                echo '<p class="warning" style="margin: 10px 20px;">'.$this->session->flashdata('sukses').'</p>';
+            }
+         ?>
+         <?php  if(isset($_SESSION['reg-success'])) { ?>
+            <p class="warning" style="margin: 10px 20px;"><?php echo $_SESSION['reg-success']; ?></p>
+        <?php unset($_SESSION['reg-success']); } ?>
          <?php echo form_open('login');?>
          <input type="text" name="username" class="form-control" placeholder="username" value="<?php echo set_value('username'); ?>" required autofocus>
          <p>
