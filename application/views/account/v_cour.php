@@ -125,6 +125,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="content">
                 <div class="container-fluid">
+                      <div class="row">
+                        <div align="center" class="col-md-12">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card-body" style="padding:10px">
+                                            <h3 class="card-title">Cost Of Unreability </h3>
+                                            <div align="center" class="col">
+                                                <h2 class="title  text-primary">Rp. 0</h2>
+                                            </div>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                         <div class="content">
+                                    <a href="#" class="btn btn-primary btn-fill">Download Data</a>
+                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/cour3.jpg" style="width:100%; height: 100%;" alt="" title="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card">
@@ -152,9 +176,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-
                     </div>
 
 
