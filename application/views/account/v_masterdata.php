@@ -126,263 +126,162 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </nav>
 
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo base_url()?>index.php/Masterdata">Master Data</a>
-                </li>
-                <li class="breadcrumb-item active">Tables</li>
-            </ol>
-
-
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="card">
-                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/event.png" alt="Card image cap" style="width:100%; height: auto;">
                                 <div class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Failure Event</h3>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary btn-fill">Upload</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/event.png" alt="Card image cap" style="width:100%; height: auto;">
-                                <div class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Failure History</h3>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary btn-fill">Upload</a>
+                                    <h3 class="card-title" style="margin-left: 25px;">Import Failure Event</h3>
+                                    <p class="card-text" style="margin-left: 25px;">Silahkan mengimport file excel failure event dengan ketentuan berikut :</p>
+                                    <ol class="text-default">
+                                        <small><li>File Excel yang diimport harus sesuai dengan template yang telah ditentukan</li></small>
+                                        <small><li>Jika belum memiliki, silahkan download template <a href="#" class="text-primary"><b>disini</b></a></li></small>
+                                        <small><li>Kolom yang kosong akan dianggap sebagai error, sehingga tidak akan diimport, untuk mengatasi hal tersebut silahkan beri nilai "--" sebagai penanda kolom kosong.</li></small>
+                                    </ol>
+                                    <form enctype="multipart/form-data" method="POST" action="<?php echo base_url(); ?>index.php/Masterdata/import_master">
+                                    <div class="row" style="padding-left: 40px; padding-top: 10px;">
+                                        <div class="cold-md-6">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <select name="subsystem" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                        <?php $no=1; foreach($subsystems as $subsys) { ?>
+                                                            <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                        <?php $no++; } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="file" class="input-sm" name="excel_file">          
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <input style="margin-left: 28px;" type="submit" name="submit" value="Import" class="btn btn-primary btn-sm btn-fill">
+                                    </form>
+                                    <br>                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php if(isset($_SESSION['imported'])) { ?>
                     <div class="row">
                         <div class="col-md-12 ">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Failure Event</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="" width="100%" cellspacing="0">
-                                        <thead>
-                                            <th>No.</th>
-                                            <th>Failure Start</th>
-                                            <th>Repair Finish</th>
-                                            <th>Downtime</th>
-                                            <th>TTR (Hours)</th>
-                                            <th>TTF (Hours)</th>
-                                            <th>Description</th>
-                                            <th>Actions</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>no data</td>
-                                                <td>no data</td>
-                                                <td>no data</td>
-                                                <td>no data</td>
-                                                <td>no data</td>
-                                                <td>no data</td>
-                                                <td>no data</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div style="text-align:center">
-                                        <a href="#" class="btn btn-info btn-fill">Calculate TTR/TTF</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Failure Histori</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
-                                </div>
-                                <div class="content table-responsive table-full-width">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <th>No</th>
-                                            <th>Time To Repair</th>
-                                            <th>Time To Failure</th>
-                                            <th>Description</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                            <div align="center" class="card col-md-12">
-                                <div class="col-md-6">
-                                    <div class="col">
-                                        <h2 class="title  text-success">0</h2>
-                                        <p class="category text-success">MTTR</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="col">
-                                        <h2 class="title  text-primary">0</h2>
-                                        <p class="category text-primary">MTTF</p>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <a href="#" class="btn btn-info btn-fill">Calculate MTTF/MTTR</a>
+                                    <h4 class="title">Failure Event Preview</h4>
+                                    <p class="text-primary"><small>Preview Hasil Import Excel, harap pastikan data sesuai sebelum di submit ke sistem</small></p>
+                                    <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/submit_master">
+                                        <table class="table table-bordered" style="margin-top: 10px;" id="" width="100%" cellspacing="0">
+                                            <thead>
+                                                <th>No.</th>
+                                                <th>Failure Start</th>
+                                                <th>Start Repair</th>
+                                                <th>Repair Finish</th>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no = 1; foreach($import_preview as $preview) { ?>
+                                                <tr>
+                                                    <td><?php echo $no; ?></td>
+                                                    <td><?php echo $preview['failure_start']; ?></td>
+                                                    <td><?php echo $preview['start_repair']; ?></td>
+                                                    <td><?php echo $preview['repair_finish']; ?></td>
+                                                </tr>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                        </table>
+                                        <small>Saat klik tombol submit data akan dimasukkan kedalam sistem untuk diproses</small>
+                                        <div style="text-align:right">
+                                            <input type="submit" name="submit" value="Submit" class="btn btn-primary btn-fill btn-sm">
+                                        </div>
+                                        <br>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- Row 2-->
+                    <?php unset($_SESSION['imported']); } ?>
+                    <?php if(!empty($data_master_submit)) { ?>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-12 ">
                             <div class="card">
-                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
-                                <div align="center" class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Failure Function</h3>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm1()">Go somewhere</a>
-                                    <div class="form-popup" id="myForm1">
-                                        <form action="/action_page.php" class="form-container">
-                                            <h3>Create Failure Function</h3>
-
-                                            <div class="form-group">
-                                                <label for="inputSubSystem"><b>SubSystem</b></label>
-                                                <input type="text" list="subsystem" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                <datalist id="subsystem">
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                </datalist>
-                                            </div>
-
-                                            <label for="FailureNumber"><b>Number</b></label>
-                                            <input type="number" placeholder="Enter Number" name="FailureNumber" required>
-
-                                            <label for="FailureName"><b>Name</b></label>
-                                            <input type="text" placeholder="Enter Name" name="FailureName" required>
-
-                                            <label for="psw"><b>Deskripsi</b></label>
-                                            <textarea type="text" placeholder="Deskripsi" name="name" required></textarea>
-
-                                            <button type="submit" class="btn">Create</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
-                                        </form>
+                                <div class="header">
+                                    <h4 class="title">Failure Event List</h4>
+                                    <div class="row">
+                                        <div class="col-md-3" style="margin-top: 15px; margin-bottom: 15px;">
+                                            <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/changeSubsystem">
+                                                <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" name="changed_subsystem">
+                                                    <?php $no=1; foreach($subsystems as $subsys) { ?>
+                                                        <?php if(isset($_SESSION['selected_subsystem'])) { ?>
+                                                            <?php if($_SESSION['selected_subsystem'] == $subsys->id) { ?>
+                                                        <option selected value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                            <?php } else { ?>
+                                                        <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                            <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                        <?php } ?>
+                                                    <?php $no++; } ?>
+                                                </select>
+                                            </form>
+                                        </div>
                                     </div>
+                                    <table class="table table-bordered" style="margin-top: 10px;" id="" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th>No.</th>
+                                            <th>Failure Start</th>
+                                            <th>Start Repair</th>
+                                            <th>Repair Finish</th>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1; foreach($data_master_submit as $preview) { ?>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $preview->failure_start; ?></td>
+                                                <td><?php echo $preview->start_repair; ?></td>
+                                                <td><?php echo $preview->repair_finish; ?></td>
+                                            </tr>
+                                            <?php $no++; } ?>
+                                        </tbody>
+                                    </table>
+                                    <br>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                    </div> <!-- Row 2-->
+                    <?php } else { ?>
+                    <div class="row">
+                        <div class="col-md-12 ">
                             <div class="card">
-                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
-                                <div align="center" class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Failure Event</h3>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm2()">Go somewhere</a>
-                                    <div class="form-popup" id="myForm2">
-                                        <form action="/action_page.php" class="form-container">
-                                            <h3>Create Failure Event</h3>
-
-                                            <div class="form-group">
-                                                <label for="inputSubSystem"><b>SubSystem</b></label>
-                                                <input type="text" list="subsystem" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                <datalist id="subsystem">
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                </datalist>
-                                            </div>
-
-                                            <label for="FailureNumber"><b>Number</b></label>
-                                            <input type="number" placeholder="Enter Number" name="FailureNumber" required>
-
-                                            <label for="FailureName"><b>Name</b></label>
-                                            <input type="text" placeholder="Enter Name" name="FailureName" required>
-
-                                            <label for="psw"><b>Deskripsi</b></label>
-                                            <textarea type="text" placeholder="Deskripsi" name="name" required></textarea>
-
-                                            <button type="submit" class="btn">Create</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
-                                        </form>
+                                <div class="header">
+                                    <h4 class="title">Failure Event List</h4>
+                                    <div class="row">
+                                        <div class="col-md-3" style="margin-top: 15px; margin-bottom: 15px;">
+                                            <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/changeSubsystem">
+                                                <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" name="changed_subsystem">
+                                                    <?php $no=1; foreach($subsystems as $subsys) { ?>
+                                                        <?php if(isset($_SESSION['selected_subsystem'])) { ?>
+                                                            <?php if($_SESSION['selected_subsystem'] == $subsys->id) { ?>
+                                                        <option selected value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                            <?php } else { ?>
+                                                        <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                            <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                        <?php } ?>
+                                                    <?php $no++; } ?>
+                                                </select>
+                                            </form>
+                                        </div>
                                     </div>
+                                    <p>Tidak ada master data untuk subsystem ini</p>
+                                    <br>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
-                                <div align="center" class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Failure Event</h3>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm3()">Go somewhere</a>
-                                    <div class="form-popup" id="myForm3">
-                                        <form action="/action_page.php" class="form-container">
-                                            <h3>Create Failure Function</h3>
-
-                                            <div class="form-group">
-                                                <label for="inputSubSystem"><b>SubSystem</b></label>
-                                                <input type="text" list="subsystem" id="inputSubSystem" placeholder="Choice Subsystem">
-                                                <datalist id="subsystem">
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                    <option>x</option>
-                                                </datalist>
-                                            </div>
-
-                                            <label for="FailureNumber"><b>Number</b></label>
-                                            <input type="number" placeholder="Enter Number" name="FailureNumber" required>
-
-                                            <label for="FailureName"><b>Name</b></label>
-                                            <input type="text" placeholder="Enter Name" name="FailureName" required>
-
-                                            <label for="psw"><b>Deskripsi</b></label>
-                                            <textarea type="text" placeholder="Deskripsi" name="name" required></textarea>
-
-                                            <button type="submit" class="btn">Create</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm3()">Close</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/img/machine.jpg" alt="Card image cap" style="width:100%; height: auto;">
-                                <div align="center" class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Failure Event</h3>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary btn-fill" onclick="openForm4()">Go somewhere</a>
-                                    <div class="form-popup" id="myForm4">
-                                        <form action="/action_page.php" class="form-container">
-                                            <h1>Login</h1>
-
-                                            <label for="email"><b>Email</b></label>
-                                            <input type="text" placeholder="Enter Email" name="email" required>
-
-                                            <label for="psw"><b>Password</b></label>
-                                            <input type="password" placeholder="Enter Password" name="psw" required>
-
-                                            <button type="submit" class="btn">Login</button>
-                                            <button type="button" class="btn cancel" onclick="closeForm4()">Close</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> <!-- Row 2-->
+                    <?php } ?>
+                    
                 </div><!-- Container -->
             </div><!-- Content -->
 

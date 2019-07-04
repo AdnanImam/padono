@@ -5,10 +5,26 @@
      function __construct(){
          parent::__construct();
          $this->simple_login->cek_login();
+         $this->load->model('Plant_model', 'plant');
      }
  
      //Load Halaman dashboard
      public function index() {
-         $this->load->view('account/v_plantform');
+     	$data['plants'] = $this->plant->getAllBy(array('user_id' => $_SESSION['id']));
+        $this->load->view('account/v_plantform', $data);
+     }
+
+     public function create()
+     {
+     	$data = $this->input->post();
+     	$insert = $this->plant->insert(array(
+     		'plant' => $data['plant'],
+     		'description' => $data['description'],
+     		'user_id' => $_SESSION['id'],
+     	));
+     	if($insert > 0) {
+     		$_SESSION['plant-created'] = "Your Plant Created Successfully";
+     		redirect('plantform');
+     	}
      }
  }
