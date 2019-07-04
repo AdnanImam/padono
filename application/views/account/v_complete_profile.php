@@ -55,46 +55,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     -->
 
             <div class="sidebar-wrapper">
-                <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
-                </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
-                        WELLCOME <?php echo ucfirst($this->session->userdata('username')); ?>!
+                        COURAM ANALYST
                     </a>
                 </div>
-
                 <ul class="nav">
-                    <li>
-                        <a href="<?php echo base_url()?>index.php/Dashboard">
-                            <i class="pe-7s-graph"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url()?>index.php/Cour">
-                            <i class="pe-7s-vector"></i>
-                            <p>Cost Of Unreliability</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url()?>index.php/Ram">
-                            <i class="pe-7s-news-paper"></i>
-                            <p>Reliability Availability Maintainability</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url()?>index.php/Masterdata">
-                            <i class="pe-7s-note2"></i>
-                            <p>Master Data</p>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="<?php echo base_url()?>index.php/Profile">
-                            <i class="pe-7s-user"></i>
-                            <p>PROFILE</p>
-                        </a>
-                    </li>
                     <li class="active-pro">
                         <p>
                             <i class="pe-7s-rocket"></i>
@@ -104,6 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </a>
                     </li>
                 </ul>
+
             </div>
         </div>
 
@@ -117,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Profile</a>
+                        <a class="navbar-brand" href="#">One Step Ahead!</a>
                     </div>
                 </div>
             </nav>
@@ -127,33 +94,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="container-fluid">
                     <div class="row">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="header">
-                                        <h4 class="title">Edit Profile</h4>
+                                        <h4 class="title" style="margin-bottom: 5px;">Complete Your Profile</h4>
+                                        <small style="color:red;">*Please complete your profile below before using this app</small>
                                     </div>
                                     <div class="content">
-                                        <?php if(isset($_SESSION['update-profile-success'])) { ?>
-                                            <div class="alert alert-success"><?php echo $_SESSION['update-profile-success']; ?></div>
-                                        <?php unset($_SESSION['update-profile-success']); } ?>
-
-                                        <?php if(isset($_SESSION['update-photo-success'])) { ?>
-                                            <div class="alert alert-success"><?php echo $_SESSION['update-photo-success']; ?></div>
-                                        <?php unset($_SESSION['update-photo-success']); } ?>
-
-                                        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/profile/updateUserInfo">
+                                        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/profile/completeProfile">
                                             <div class="row">
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label>Company</label>
                                                         <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                                                        <input required type="text" class="form-control" placeholder="Company" name="company" value="<?php echo $user->company; ?>">
+                                                        <input required type="text" class="form-control" placeholder="Company" name="company">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Position</label>
-                                                        <input required type="text" class="form-control" placeholder="Position" name="position" value="<?php echo $user->position; ?>">
+                                                        <input required type="text" class="form-control" placeholder="Position" name="position">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -168,57 +128,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Full Name</label>
-                                                        <input required type="text" class="form-control" placeholder="Fullname" name="fullname" value="<?php echo $user->nama; ?>">
+                                                        <input required type="text" class="form-control" placeholder="Fullname" name="fullname" value="<?php echo $_SESSION['fullname'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Email</label>
-                                                        <input required type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $user->email; ?>">
+                                                        <input required type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $_SESSION['email']; ?>">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Address</label>
-                                                        <textarea required class="form-control" name="address"><?php echo $user->address; ?></textarea>
+                                                        <textarea required class="form-control" name="address"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Photo</label>
+                                                        <input required type="file" name="photo" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary btn-fill pull-right btn-sm">Update</button>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Save</button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-user">
-                                    <div class="image">
-                                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
-                                    </div>
-                                    <div class="content">
-                                        <div class="author">
-                                            <a href="#">
-                                                <img class="avatar border-gray" src="<?php echo base_url()?>uploads/users/photo/<?php echo $user->photo; ?>" alt="..." />
-
-                                                <h4 class="title"><?php echo $user->nama; ?><br />
-                                                    <small><?php echo $user->username; ?></small>       
-                                                </h4>
-                                                <center>
-                                                    <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>index.php/profile/updateProfilePicture" style="width: 50%; margin-top: 20px;">
-                                                        <label>Change Profile Picture</label>
-                                                        <input type="file" name="photo">
-                                                        <br><br>
-                                                        <button type="submit" class="btn btn-primary btn-xs btn-fill">Change Photo</button>
-                                                    </form>
-                                                </center>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <hr>
                                 </div>
                             </div>
 
@@ -227,17 +166,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <p class="copyright pull-right">
-                    &copy; <script>
-                        document.write(new Date().getFullYear())
-
-                    </script> <a href="https://bie.telkomuniversity.ac.id/">Teknik Industri</a>, Telkom University
-                </p>
-            </div>
-        </footer>
 
     </div>
     </div>
@@ -274,15 +202,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function() {
 
         demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Proyek Ahkhir Dono</b> - s1 Teknik industri."
-
-        }, {
-            type: 'info',
-            timer: 4000
-        });
 
     });
 

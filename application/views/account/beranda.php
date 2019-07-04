@@ -63,10 +63,10 @@
                     </div>
 
                     <div class="button-get-started">
-                        <a href="<?php echo base_url()?>index.php/login" target="_blank" class="btn btn-white btn-fill btn-lg ">
+                        <a href="<?php echo base_url()?>index.php/login" class="btn btn-white btn-fill btn-lg ">
                             Login
                         </a>
-                        <a href="<?php echo base_url()?>index.php/register" target="_blank" class="btn btn-white btn-fill btn-lg ">
+                        <a href="<?php echo base_url()?>index.php/register" class="btn btn-white btn-fill btn-lg ">
                             Register
                         </a>
                     </div>

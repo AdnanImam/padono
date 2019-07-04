@@ -34,17 +34,25 @@
  
          if($query->num_rows() == 1) {
              //ambil data user berdasar username
-             $row  = $this->CI->db->query('SELECT id_user FROM users where username = "'.$username.'"');
+             $row  = $this->CI->db->query('SELECT * FROM users where username = "'.$username.'"');
              $admin     = $row->row();
              $id   = $admin->id_user;
  
              //set session user
              $this->CI->session->set_userdata('username', $username);
+             $this->CI->session->set_userdata('email', $admin->email);
+             $this->CI->session->set_userdata('fullname', $admin->nama);
              $this->CI->session->set_userdata('id_login', uniqid(rand()));
              $this->CI->session->set_userdata('id', $id);
- 
-             //redirect ke halaman dashboard
-             redirect(site_url('dashboard'));
+
+             //check profile complete
+             $is_complete_profile = $admin->is_complete_profile;
+
+             if($is_complete_profile == 0)
+                redirect(site_url('profile/completeyourprofile'));
+              else
+                redirect(site_url('dashboard'));
+
          }else{
  
              //jika tidak ada, set notifikasi dalam flashdata.

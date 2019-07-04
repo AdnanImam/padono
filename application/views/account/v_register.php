@@ -47,7 +47,7 @@
 
                 <div class="form-group">
                     <div class="form-label-group">
-                        <input type="text" name="email" class="form-control" value="<?php echo set_value('email'); ?>" required="required">
+                        <input type="email" name="email" class="form-control" value="<?php echo set_value('email'); ?>" required="required">
                         <label for="email">Email</label>
                         <p> <?php echo form_error('email'); ?> </p>
                     </div>
