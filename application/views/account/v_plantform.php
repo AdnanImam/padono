@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/pe-icon-7-stroke.css" type="text/css">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 </head>
 
 <body>
@@ -126,28 +127,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 <li class="breadcrumb-item">Plant</li>
             </ol>
-
-            <div class="content">
+            <div class="content" style="margin-top:-30px;">
                 <div class="container-fluid">
                     <div class="row">
                         <div style="background-color:#E6E4E4; padding : 10px" class="col-md-6">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Plant Code</label>
-                                    <input type="Number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Code">
-                                </div>
+                            <form method="POST" action="<?php echo base_url(); ?>index.php/Plantform/create">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Plant</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Plan">
+                                    <input required name="plant" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Plan">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Description</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
+                                    <input required name="description" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
+                        <div class="col-md-6">
+                            <?php if(isset($_SESSION['plant-created'])) { ?>
+                                <div id="plant-notify" class="alert alert-success"><?php echo $_SESSION['plant-created']; ?></div>
+                            <?php unset($_SESSION['plant-created']); } ?>
+                        </div>
                     </div>
+                    <h4>Your Plant History</h4>
+                    <table class="table table-sm" id="plant_table" class="display">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Plant</th>
+                                <th>Description</th>
+                                <th>Created at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1; foreach($plants as $data) { ?>
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $data->plant ?></td>
+                                <td><?php echo $data->description; ?></td>
+                                <?php  
+                                    $timeStamp = $data->created_at;
+                                    $timeStamp = date( "d/m/Y", strtotime($timeStamp));
+                                ?>
+                                <td><?php echo $timeStamp; ?></td>
+                            </tr>
+                            <?php $no++; } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -157,13 +183,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
 
+
 </body>
 
 <!--   Core JS Files   -->
 <script src="<?php echo base_url()?>assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-
 <script src="<?php echo base_url()?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
 <!--  Charts Plugin -->
 <script src="<?php echo base_url()?>assets/js/chartist.min.js"></script>
 
@@ -182,7 +208,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
     $(document).ready(function() {
 
+        $('#plant_table').DataTable();
+
         demo.initChartist();
+
+        setTimeout(function() {
+            $('#plant-notify').hide();
+        },2000);
 
         $.notify({
             icon: 'pe-7s-gift',

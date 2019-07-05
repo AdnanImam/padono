@@ -128,9 +128,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                         <div class="col-md-3">
                             <div class="card">
-
                                 <div class="header">
-                                    <h2 class="title">44</h2>
+                                    <h2 class="title"><?php echo $total_plant; ?></h2>
                                     <p class="category">PLAN</p>
                                 </div>
                                 <div class="content">
@@ -142,7 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card">
 
                                 <div class="header">
-                                    <h2 class="title">39</h2>
+                                    <h2 class="title"><?php echo $total_asset; ?></h2>
                                     <p class="category">ASSET</p>
                                 </div>
                                 <div class="content">
@@ -154,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card">
 
                                 <div class="header">
-                                    <h2 class="title">29</h2>
+                                    <h2 class="title"><?php echo $total_subsystem; ?></h2>
                                     <p class="category">Subsystem</p>
                                 </div>
                                 <div class="content">

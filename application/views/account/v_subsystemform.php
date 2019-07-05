@@ -39,6 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/pe-icon-7-stroke.css" type="text/css">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+
 </head>
 
 <body>
@@ -128,34 +130,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="container-fluid">
                     <div class="row">
                         <div style="background-color:#E6E4E4; padding : 10px" class="col-md-6">
-                            <form>
+                            <form method="POST" action="<?php echo base_url(); ?>index.php/subsystemform/create">
                                 <div class="form-group">
-                                    <label for="inputsubsystem">AssetSystem</label>
-                                    <input type="text" list="cars" class="form-control" placeholder="Choice a Asset" />
-                                    <datalist id="cars">
-                                        <option>x</option>
-                                        <option>x</option>
-                                        <option>x</option>
-                                        <option>x</option>
-                                    </datalist>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Subsystem Number</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Plan">
+                                    <label for="inputsubsystem">Asset</label>
+                                    <select name="asset" class="form-control">
+                                        <?php foreach($assets as $asset) { ?>
+                                            <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Subsystem Name</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
+                                    <input required name="subsys_name" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Description</label>
-                                    <textarea class="form-control rounded-0 " id="Description" rows="4" placeholder="Enter Description"></textarea>
+                                    <textarea required name="subsys_desc" class="form-control rounded-0 " id="Description" rows="4" placeholder="Enter Description"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary btn-fill pull-right">Create Subsystem</button>
                             </form>
                         </div>
-
+                        <div class="col-md-6">
+                            <?php if(isset($_SESSION['subsys-created'])) { ?>
+                                <div id="subsys-notify" class="alert alert-success animated fadeIn"><?php echo $_SESSION['subsys-created']; ?></div>
+                            <?php unset($_SESSION['subsys-created']); } ?>
+                        </div>
                     </div>
+                    <h4>Your Subsystem History</h4>
+                    <table class="table table-sm" id="subsys_table" class="display">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Subsystem Name</th>
+                                <th>Description</th>
+                                <th>Asset Name</th>
+                                <th>Created at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1; foreach($subsys as $sub) { ?>
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $sub->name; ?></td>
+                                <td><?php echo $sub->description; ?></td>
+                                <?php  
+                                    $asset_name = $this->db->query("SELECT name FROM assets WHERE id='$sub->asset_id'")->row();
+                                ?>
+                                <td><?php echo $asset_name->name; ?></td>
+                                <?php  
+                                    $timeStamp = $sub->created_at;
+                                    $timeStamp = date( "d/m/Y", strtotime($timeStamp));
+                                ?>
+                                <td><?php echo $timeStamp; ?></td>
+                            </tr>
+                            <?php $no++; } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -181,7 +211,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url()?>assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 
 <script src="<?php echo base_url()?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
 <!--  Charts Plugin -->
 <script src="<?php echo base_url()?>assets/js/chartist.min.js"></script>
 
@@ -200,16 +230,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
     $(document).ready(function() {
 
-        demo.initChartist();
+        $('#subsys_table').DataTable();
 
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Proyek Ahkhir Dono</b> - s1 Teknik industri."
-
-        }, {
-            type: 'info',
-            timer: 4000
-        });
+        setTimeout(function() {
+            $('#subsys-notify').hide();
+        },2000);
 
     });
 
