@@ -153,8 +153,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <table class="table table-sm" id="plant_table" class="display">
                         <thead>
                             <tr>
-                                <th>No.</th>
-                                <th>Plant</th>
+                                <th>ID PLANT</th>
+                                <th>Plant Name</th>
                                 <th>Description</th>
                                 <th>Created at</th>
                             </tr>
@@ -162,7 +162,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <tbody>
                             <?php $no = 1; foreach($plants as $data) { ?>
                             <tr>
-                                <td><?php echo $no; ?></td>
+                                <td><?php echo $data->id; ?></td>
                                 <td><?php echo $data->plant ?></td>
                                 <td><?php echo $data->description; ?></td>
                                 <?php  

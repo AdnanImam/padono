@@ -136,21 +136,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <p class="card-text" style="margin-left: 25px;">Silahkan mengimport file excel failure event dengan ketentuan berikut :</p>
                                     <ol class="text-default">
                                         <small><li>File Excel yang diimport harus sesuai dengan template yang telah ditentukan</li></small>
-                                        <small><li>Jika belum memiliki, silahkan download template <a href="#" class="text-primary"><b>disini</b></a></li></small>
+                                        <small><li>Jika belum memiliki, silahkan download template <a href="<?php echo base_url(); ?>index.php/masterdata/download_template" class="text-primary"><b>disini</b></a></li></small>
                                         <small><li>Kolom yang kosong akan dianggap sebagai error, sehingga tidak akan diimport, untuk mengatasi hal tersebut silahkan beri nilai "--" sebagai penanda kolom kosong.</li></small>
                                     </ol>
                                     <form enctype="multipart/form-data" method="POST" action="<?php echo base_url(); ?>index.php/Masterdata/import_master">
-                                    <div class="row" style="padding-left: 40px; padding-top: 10px;">
+                                    <div class="row" style="padding-left: 40px;">
                                         <div class="cold-md-6">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <select name="subsystem" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
-                                                        <?php $no=1; foreach($subsystems as $subsys) { ?>
-                                                            <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
+                                                    <label>Asset</label>
+                                                    <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>">
+                                                    <select name="select_asset" id="select_asset" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                        <option disabled selected>-- Pilih Asset --</option>
+                                                        <?php $no=1; foreach($assets as $asset) { ?>
+                                                            <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
                                                         <?php $no++; } ?>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-3">
+                                                    <label>Subsystem</label>
+                                                    <select name="subsystem" id="subsystem" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                        <option disabled selected>-- Pilih Asset Terlebih Dahulu --</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label>File Excel</label>
                                                     <input type="file" class="input-sm" name="excel_file">          
                                                 </div>
                                             </div>
@@ -210,6 +220,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="row">
                                         <div class="col-md-3" style="margin-top: 15px; margin-bottom: 15px;">
                                             <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/changeSubsystem">
+
                                                 <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" name="changed_subsystem">
                                                     <?php $no=1; foreach($subsystems as $subsys) { ?>
                                                         <?php if(isset($_SESSION['selected_subsystem'])) { ?>
@@ -256,21 +267,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="header">
                                     <h4 class="title">Failure Event List</h4>
                                     <div class="row">
-                                        <div class="col-md-3" style="margin-top: 15px; margin-bottom: 15px;">
+                                        <div class="col-md-12" style="margin-top: 15px; margin-bottom: 15px;">
                                             <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/changeSubsystem">
-                                                <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" name="changed_subsystem">
-                                                    <?php $no=1; foreach($subsystems as $subsys) { ?>
-                                                        <?php if(isset($_SESSION['selected_subsystem'])) { ?>
-                                                            <?php if($_SESSION['selected_subsystem'] == $subsys->id) { ?>
-                                                        <option selected value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
-                                                            <?php } else { ?>
-                                                        <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
-                                                            <?php } ?>
-                                                        <?php } else { ?>
-                                                            <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
-                                                        <?php } ?>
+                                                <div class="col-md-3">
+                                                <select name="select_asset" id="select_asset2" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                    <option disabled selected>-- Pilih Asset --</option>
+                                                    <?php $no=1; foreach($assets as $asset) { ?>
+                                                        <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
                                                     <?php $no++; } ?>
                                                 </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" id="select_subsystem2" name="changed_subsystem">
+                                                    <option disabled selected>-- Pilih Asset Terlebih Dahulu --</option>
+                                                </select>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -349,6 +360,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </script>
 <script>
+
+    $(document).ready(function() {
+
+        $('#select_asset').on('change', function() {
+            let baseUrl = $('#base_url').val();
+            let assetId = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
+                dataType: 'json',
+                success: function(response) {
+                    $('#subsystem').empty();
+                    var total_subsys = response.length;
+                    for (var i = 0; i < total_subsys; i++) {
+                        $('#subsystem').append(
+                            '<option value="'+response[0].id+'">'+
+                                response[i].name+
+                            '</option>'
+                        );
+                    }
+
+                }
+            });
+        });
+
+        $('#select_asset2').on('change', function() {
+            let baseUrl = $('#base_url').val();
+            let assetId = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
+                dataType: 'json',
+                success: function(response) {
+                    $('#select_subsystem2').empty();
+                    var total_subsys = response.length;
+                    $('#select_subsystem2').append(
+                            '<option disabled selected>'+
+                            '-- Pilih Subsystem --</option>'
+                        );
+                    for (var i = 0; i < total_subsys; i++) {
+                        $('#select_subsystem2').append(
+                            '<option value="'+response[0].id+'">'+
+                                response[i].name+
+                            '</option>'
+                        );
+                    }
+
+                }
+            });
+        });
+
+    });
+
     function openForm1() {
         document.getElementById("myForm1").style.display = "block";
     }

@@ -6,12 +6,14 @@
          parent::__construct();
          $this->simple_login->cek_login();
          $this->load->model('Subsystem_model', 'subsys');
+         $this->load->model('Asset_model', 'asset');
          $this->load->model('Master_data_model', 'master');
      }
  
      //Load Halaman dashboard
      public function index() {
      	$data['subsystems'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
+        $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
      	$data['data_master_submit'] = $this->master->getAllBy(array('user_id' => $_SESSION['id']));
         $this->load->view('account/v_masterdata', $data);
      }
@@ -85,5 +87,11 @@
             return $this->upload->data();
         }
         return false;
+     }
+
+     public function download_template($value='')
+     {
+         $this->load->helper('download');
+         force_download('./assets/template_excel/template_master.xlsx', NULL);
      }
  }

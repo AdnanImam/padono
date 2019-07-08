@@ -30,6 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Pop Up CSS    -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/popup.css" type="text/css">
 
+    <!-- Select Box CSS    -->
+    <link rel="stylesheet" media="all" href="<?php echo base_url()?>assets/css/selectbox.css" type="text/css">
+
+
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" media="all" href="<?php echo base_url()?>http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
@@ -126,35 +130,274 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div align="center" class="col-md-12">
                             <div class="card">
-                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/cour1.jpg" alt="Card image cap" style="width:100%; height: auto;">
-                                <div class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Corrective Cour</h3>
-                                    <div align="center" class="col">
-                                        <h2 class="title  text-success">Rp. 0</h2>
-                                        <p class="category text-success">Corrective Cour</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card-body" style="padding:10px">
+                                            <h3 class="card-title">Cost Of Unreability </h3>
+                                            <div align="center" class="col">
+                                                <h2 class="title  text-primary">Rp. 0</h2>
+                                            </div>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <h3 class="title  text-info">Rp. 0</h3>
+                                                    <p class="category text-info">Downtime Cour</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <div>
+                                                    <h3 class="title  text-success">Rp. 0</h3>
+                                                    <p class="category text-success">Corrective Cour</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <h3 class="title  text-danger">0</h3>
+                                                    <p class="category text-danger">Failure Rate</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <a href="#" class="btn btn-primary btn-fill">Download Data</a>
+                                        </div>
                                     </div>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/cour3.jpg" style="width:100%; height: 100%;" alt="" title="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="card">
-                                <img class="card-img-top" src="<?php echo base_url()?>assets/img/cour2.jpg" alt="Card image cap" style="width:100%; height: auto;">
-                                <div class="card-body" style="padding:10px">
-                                    <h3 class="card-title">Downtime Cour</h3>
-                                    <div align="center" class="col">
-                                        <h2 class="title  text-danger">Rp. 0</h2>
-                                        <p class="category text-danger">Downtime Cour</p>
+                                <div class="col-md-7 card" style="padding:30px;">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Cost Of Unreability Form </h6>
                                     </div>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <form method="POST" action="<?php echo base_url(); ?>index.php/Cour/analyze">
+                                        <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>">
+                                        <div class="select-box">
+                                            <label for="select-box1" class="label select-box1"><span class="label-desc" style="color:#fff;">Choose Assets</span> </label>
+                                            <select id="select_asset" class="select" name="asset_name">
+                                                <option value="" disabled selected>-- Pilih Asset --</option>
+                                                <?php foreach($assets as $data) { ?>
+                                                    <option value="<?php echo $data->id; ?>"><?php echo 'Plant '.$data->plant_id.' - '.$data->name; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1"><b>Jumlah Price Maintenance Material</b></label>
+                                            <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Enter Number">
+
+                                            <label for="exampleInputPassword1"><b> Jumlah Biaya Peralatan</b></label>
+                                            <input type="number" name="material_price" class="form-control" id="#" placeholder="Enter Number">
+                                        </div>
+                                        <div class="form-group" style="margin-top:40px;">
+                                            <label for="exampleInputPassword1"><b>Jumlah Hari Kerja Efektif per Bulan</b></label>
+                                            <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Enter Number">
+
+                                            <label for="exampleInputPassword1"><b>Jumlah Sift Kerja per Hari</b></label>
+                                            <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Enter Number">
+
+                                            <label for="exampleInputPassword1"><b>Jumlah Jam Kerja per Sift</b></label>
+                                            <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Enter Number">
+                                        </div>
+                                        <div class="form-group" style="margin-top:40px;">
+                                            <label for="exampleInputPassword1"><b>Jumlah Teknisi per Maintenance</b></label>
+                                            <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Enter Number">
+
+                                            <label for="exampleInputPassword1"><b>Gaji Teknisi Kerja per Bulan</b></label>
+                                            <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Enter Number">
+                                        </div>
+                                        <div class="form-group" style="margin-top:40px;">
+                                            <label for="exampleInputPassword1"><b>Kapasitas Mesin Per Jam</b></label>
+                                            <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Enter Number">
+
+                                            <label for="exampleInputPassword1"><b>Harga Produk Per PCS</b></label>
+                                            <input type="number" name="product_price" class="form-control" id="#" placeholder="Enter Number">
+                                        </div>
+                                        <div class="form-group" style="margin-top:40px;">
+                                            <label for="exampleInputPassword1"><b>Number Of Failure</b></label>
+                                            <table class="table" id="num_of_failure_table">
+                                            </table>
+                                            <!-- <input type="number" name="num_of_failure" class="form-control" id="#" placeholder="Enter Number"> -->
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-fill">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-5">
+                                    <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/sideimage.png" style="width:100%; height: 100%;" alt="" title="">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Base Data Tabel</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th>No</th>
+                                            <th>Sub Sistem</th>
+                                            <th>Corective Lost Time</th>
+                                            <th>Downtime Lost Time</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">COUR Table</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th>No</th>
+                                            <th>Sub Sistem</th>
+                                            <th>Lost Production Cost</th>
+                                            <th>Equipment Cost</th>
+                                            <th>Labor Maintenance Cost</th>
+                                            <th class="bg-primary" style="color:#fff;">Cost Of Unreability</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Down Time Table</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th>No</th>
+                                            <th>Sub Sistem</th>
+                                            <th>Lost Production Cost</th>
+                                            <th>Equipment Cost</th>
+                                            <th>Labor Maintenance Cost</th>
+                                            <th class="bg-primary" style="color:#fff;">Down Time </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td class="bg-info">No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -200,6 +443,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--  Charts Plugin -->
 <script src="<?php echo base_url()?>assets/js/chartist.min.js"></script>
 
+<!--  SelectBox Plugin -->
+<script src="<?php echo base_url()?>assets/js/selectbox.js"></script>
+
 <!--  Notifications Plugin    -->
 <script src="<?php echo base_url()?>assets/js/bootstrap-notify.js"></script>
 
@@ -215,16 +461,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
     $(document).ready(function() {
 
-        demo.initChartist();
+        $('#select_asset').on('change', function() {
+            let baseUrl = $('#base_url').val();
+            let assetId = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
+                dataType: 'json',
+                success: function(response) {
+                    $('#num_of_failure_table').empty();
+                    var total_asset = response.length;
 
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Proyek Ahkhir Dono</b> - s1 Teknik industri."
+                    for (var i = 0; i < total_asset; i++) {
+                        $('#num_of_failure_table').append(
+                            '<tr>'+
+                                '<td><label for="exampleInputPassword1"><b>'+response[i].name+'</b></label></td>'+
+                                '<td><input name="subsys_num_of_failure[]" placeholder="Number of Failure.." type="number" class="form-control input-sm"></td>'+
+                            '</tr>'
+                        );
+                    }
 
-        }, {
-            type: 'info',
-            timer: 4000
+                }
+            });
         });
+
+        // demo.initChartist();
+
+        // $.notify({
+        //     icon: 'pe-7s-gift',
+        //     message: "Welcome to <b>Proyek Ahkhir Dono</b> - s1 Teknik industri."
+
+        // }, {
+        //     type: 'info',
+        //     timer: 4000
+        // });
 
     });
 
