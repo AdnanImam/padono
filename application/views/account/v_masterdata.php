@@ -218,22 +218,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="header">
                                     <h4 class="title">Failure Event List</h4>
                                     <div class="row">
-                                        <div class="col-md-3" style="margin-top: 15px; margin-bottom: 15px;">
+                                        <div class="col-md-12" style="margin-top: 15px; margin-bottom: 15px;">
                                             <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/changeSubsystem">
 
-                                                <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" name="changed_subsystem">
-                                                    <?php $no=1; foreach($subsystems as $subsys) { ?>
-                                                        <?php if(isset($_SESSION['selected_subsystem'])) { ?>
-                                                            <?php if($_SESSION['selected_subsystem'] == $subsys->id) { ?>
-                                                        <option selected value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
-                                                            <?php } else { ?>
-                                                        <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
-                                                            <?php } ?>
-                                                        <?php } else { ?>
-                                                            <option value="<?php echo $subsys->id; ?>"><?php echo 'Subsystem - '.$no.' : '.$subsys->name; ?></option>
-                                                        <?php } ?>
-                                                    <?php $no++; } ?>
-                                                </select>
+                                                <div class="col-md-3">
+                                                    <select name="select_asset" id="select_asset2" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                        <option disabled selected>-- Pilih Asset --</option>
+                                                        <?php $no=1; foreach($assets as $asset) { ?>
+                                                            <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
+                                                        <?php $no++; } ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" id="select_subsystem2" name="changed_subsystem">
+                                                        <option disabled selected>-- Pilih Asset Terlebih Dahulu --</option>
+                                                    </select>
+                                                </div>
+
+
                                             </form>
                                         </div>
                                     </div>
@@ -243,19 +245,331 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th>Failure Start</th>
                                             <th>Start Repair</th>
                                             <th>Repair Finish</th>
+                                            <th>Downtime</th>
+                                            <th>TTR (Hours)</th>
+                                            <th>TTF (Hours)</th>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 1; foreach($data_master_submit as $preview) { ?>
+                                            <?php
+                                                $additional_data = array();
+                                                $additional_temp = array(); 
+                                                $subsystem_id = $_SESSION['selected_subsystem'];
+                                                $no = 0; $temp = ""; foreach($data_master_submit as $preview) { 
+                                            ?>
                                             <tr>
-                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo ($no+1); ?></td>
                                                 <td><?php echo $preview->failure_start; ?></td>
                                                 <td><?php echo $preview->start_repair; ?></td>
                                                 <td><?php echo $preview->repair_finish; ?></td>
+                                                <?php $downtime =  date_diff(date_create($preview->repair_finish), date_create($preview->failure_start)); ?>
+                                                <td><?php echo $downtime->h.','.$downtime->i; ?></td>
+                                                <?php $ttr =  date_diff(date_create($preview->repair_finish), date_create($preview->start_repair)); ?>
+                                                <td><?php echo $ttr->h.','.$ttr->i; ?></td>
+                                                <?php $ttf = ""; $ttf_h = ""; $ttf_i = ""; if($no >= 1) {  ?>
+                                                    <?php $ttf =  date_diff(date_create($data_master_submit[$no-1]->repair_finish), date_create($preview->failure_start)); ?>
+                                                    <td><?php echo $ttf->h.','.$ttf->i; ?></td>
+                                                    <?php $ttf_h = $ttf->h; $ttf_i = $ttf->i; ?>
+                                                <?php } else { ?>
+                                                    <td></td>
+                                                <?php } ?>
                                             </tr>
-                                            <?php $no++; } ?>
+                                            <?php 
+                                                    $no++; 
+                                                    $this->load->model('Master_data_model', 'master');
+                                                    if($no < 1) {
+                                                        $ttrs = $ttr->h.'.'.$ttr->i;
+                                                        $downtimes = $downtime->h.'.'.$downtime->i;
+                                                        $data = array(
+                                                            'ttr' => (float)$ttrs,
+                                                            'dt' => (float)$downtimes
+                                                        );
+                                                        $this->master->update($data, array('id' => $preview->id));
+                                                    } else {
+                                                        $ttrs = $ttr->h.'.'.$ttr->i;
+                                                        $downtimes = $downtime->h.'.'.$downtime->i;
+                                                        $ttfs = $ttf_h.'.'.$ttf_i;
+                                                        $data = array(
+                                                            'ttr' => (float) $ttrs,
+                                                            'dt' => (float) $downtimes,
+                                                            'ttf' => (float) $ttfs
+                                                        );
+                                                        $this->master->update($data, array('id' => $preview->id));
+                                                    }
+                                                } 
+                                            ?>
                                         </tbody>
                                     </table>
                                     <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row 2-->
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="card">
+                                <div class="header" style="padding-bottom: 10px;">
+                                    <h4 class="title">MTTR Calculation</h4>
+                                    <table class="table table-bordered" style="margin-top: 10px;" id="" width="100%" cellspacing="0">
+                                        <?php  
+                                            $ttr_array = array();
+                                            foreach($data_master_submit as $preview) { 
+                                                array_push($ttr_array, $preview->ttr);
+                                            }
+                                            $ttr_sample_size = count($ttr_array);
+                                            $CI =& get_instance();
+                                            $CI->load->library('kalkulasi');
+
+                                            $mean_ttr = $CI->kalkulasi->calculateMu($ttr_array);
+                                            $standar_deviation = $CI->kalkulasi->calculateSigma($ttr_array);
+                                            $dmax_ttr_normal = $CI->kalkulasi->calculateDMaxNormal($ttr_array);
+                                            $dmax_ttr_exponen = $CI->kalkulasi->calculateDMaxExponensial($ttr_array);
+                                            $dmax_ttr_weibull = $CI->kalkulasi->calculateDMaxWeibull($ttr_array);
+                                            $ttr_rate = $CI->kalkulasi->calculateLamda($ttr_array);
+                                            $ttr_shape = $CI->kalkulasi->calclateBeta($ttr_array);
+                                            $ttr_intercept = $CI->kalkulasi->calculateAlpha($ttr_array);
+                                            $ttr_scale = $CI->kalkulasi->calculateEta($ttr_array);
+
+                                            $mttr = ""; 
+                                            $dmax_minimum = min($dmax_ttr_normal, $dmax_ttr_exponen, $dmax_ttr_weibull); 
+                                            if($dmax_minimum == $dmax_ttr_weibull) {
+                                                $mttr = ($mean_ttr*$CI->kalkulasi->gamma(1+(1/$ttr_shape)));
+                                            } else {
+                                                $mttr = $mean_ttr;
+                                            }
+                                            $data_mttr = array('mttr' => $mttr);
+                                            $this->db->update('subsystems', $data_mttr, array('id' => $subsystem_id));
+
+                                        ?>
+                                        <thead>
+                                            <tr>
+                                                <th>Sample Size</th>
+                                                <td><?php echo $ttr_sample_size; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Mean</th>
+                                                <td><?php echo $mean_ttr; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Standard Deviation</th>
+                                                <td><?php echo $standar_deviation; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Normal</th>
+                                                <td><?php echo $dmax_ttr_normal; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Exponential</th>
+                                                <td><?php echo $dmax_ttr_exponen; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Weibull</th>
+                                                <td><?php echo $dmax_ttr_weibull; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Rate</th>
+                                                <td><?php echo $ttr_rate; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Intercept</th>
+                                                <td><?php echo $ttr_intercept; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Shape</th>
+                                                <td><?php echo $ttr_shape; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Scale</th>
+                                                <td><?php echo $ttr_scale; ?></td>
+                                            </tr>
+                                            <tr colspan="9">
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTR : </b>'.$mttr; ?></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row 2-->
+
+                     <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="card">
+                                <div class="header" style="padding-bottom: 10px;">
+                                    <h4 class="title">MTTF Calculation</h4>
+                                    <table class="table table-bordered" style="margin-top: 10px;" id="" width="100%" cellspacing="0">
+                                        <?php  
+                                            $ttf_array = array();
+                                            $no = 0;
+                                            foreach($data_master_submit as $preview) {
+                                                if($no == 0) {
+                                                    $no++;
+                                                    continue;
+                                                }
+                                                else {
+                                                    array_push($ttf_array, $preview->ttf);
+                                                    $no++;
+                                                }
+                                            }
+                                            $ttr_sample_size = count($ttf_array);
+                                            $CI =& get_instance();
+                                            $CI->load->library('kalkulasi');
+
+                                            $mean_ttf = $CI->kalkulasi->calculateMu($ttf_array);
+                                            $standar_deviation = $CI->kalkulasi->calculateSigma($ttf_array);
+                                            $dmax_ttf_normal = $CI->kalkulasi->calculateDMaxNormal($ttf_array);
+                                            $dmax_ttf_exponen = $CI->kalkulasi->calculateDMaxExponensial($ttf_array);
+                                            $dmax_ttf_weibull = $CI->kalkulasi->calculateDMaxWeibull($ttf_array);
+                                            $ttr_rate = $CI->kalkulasi->calculateLamda($ttf_array);
+                                            $ttf_shape = $CI->kalkulasi->calclateBeta($ttf_array);
+                                            $ttr_intercept = $CI->kalkulasi->calculateAlpha($ttf_array);
+                                            $ttf_scale = $CI->kalkulasi->calculateEta($ttf_array);
+
+                                            $mttf = ""; 
+                                            $dmax_minimum = min($dmax_ttf_normal, $dmax_ttf_exponen, $dmax_ttf_weibull); 
+                                            if($dmax_minimum == $dmax_ttf_weibull) {
+                                                $mttf = ($mean_ttf*$CI->kalkulasi->gamma(1+(1/$ttf_shape)));
+                                            } else {
+                                                $mttf = $mean_ttf;
+                                            }
+                                            $data_mttf = array('mttf' => $mttf);
+                                            $this->db->update('subsystems', $data_mttf, array('id' => $subsystem_id));
+
+                                        ?>
+                                        <thead>
+                                            <tr>
+                                                <th>Sample Size</th>
+                                                <td><?php echo ($ttr_sample_size+1); ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Mean</th>
+                                                <td><?php echo $mean_ttf; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Standard Deviation</th>
+                                                <td><?php echo $standar_deviation; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Normal</th>
+                                                <td><?php echo $dmax_ttf_normal; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Exponential</th>
+                                                <td><?php echo $dmax_ttf_exponen; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Weibull</th>
+                                                <td><?php echo $dmax_ttf_weibull; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Rate</th>
+                                                <td><?php echo $ttr_rate; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Intercept</th>
+                                                <td><?php echo $ttr_intercept; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Shape</th>
+                                                <td><?php echo $ttf_shape; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Scale</th>
+                                                <td><?php echo $ttf_scale; ?></td>
+                                            </tr>
+                                            <tr colspan="9">
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTF : </b>'.$mttf; ?></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row 2-->
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="card">
+                                <div class="header" style="padding-bottom: 10px;">
+                                    <h4 class="title">MDT Calculation</h4>
+                                    <table class="table table-bordered" style="margin-top: 10px;" id="" width="100%" cellspacing="0">
+                                        <?php  
+                                            $dt_array = array();
+                                            foreach($data_master_submit as $preview) { 
+                                                array_push($dt_array, $preview->dt);
+                                            }
+                                            $dt_sample_size = count($dt_array);
+                                            $CI =& get_instance();
+                                            $CI->load->library('kalkulasi');
+
+                                            $mean_dt = $CI->kalkulasi->calculateMu($dt_array);
+                                            $standar_deviation_dt = $CI->kalkulasi->calculateSigma($dt_array);
+                                            $dmax_dt_normal = $CI->kalkulasi->calculateDMaxNormal($dt_array);
+                                            $dmax_dt_exponen = $CI->kalkulasi->calculateDMaxExponensial($dt_array);
+                                            $dmax_dt_weibull = $CI->kalkulasi->calculateDMaxWeibull($dt_array);
+                                            $dt_rate = $CI->kalkulasi->calculateLamda($dt_array);
+                                            $dt_shape = $CI->kalkulasi->calclateBeta($dt_array);
+                                            $dt_intercept = $CI->kalkulasi->calculateAlpha($dt_array);
+                                            $dt_scale = $CI->kalkulasi->calculateEta($dt_array);
+
+                                            $mdt = ""; 
+                                            $dmax_minimum = min($dmax_dt_normal, $dmax_dt_exponen, $dmax_dt_weibull); 
+                                            if($dmax_minimum == $dmax_dt_weibull) {
+                                                $mdt = ($mean_dt*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
+                                            } else {
+                                                $mdt = $mean_dt;
+                                            }
+                                            $data_mdt = array('mdt' => $mdt);
+                                            $this->db->update('subsystems', $data_mdt, array('id' => $subsystem_id));
+
+                                        ?>
+                                        <thead>
+                                            <tr>
+                                                <th>Sample Size</th>
+                                                <td><?php echo $dt_sample_size; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Mean</th>
+                                                <td><?php echo $mean_dt; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Standard Deviation</th>
+                                                <td><?php echo $standar_deviation_dt; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Normal</th>
+                                                <td><?php echo $dmax_dt_normal; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Exponential</th>
+                                                <td><?php echo $dmax_dt_exponen; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dmax Weibull</th>
+                                                <td><?php echo $dmax_dt_weibull; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Rate</th>
+                                                <td><?php echo $dt_rate; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Intercept</th>
+                                                <td><?php echo $dt_intercept; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Shape</th>
+                                                <td><?php echo $dt_shape; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Scale</th>
+                                                <td><?php echo $dt_scale; ?></td>
+                                            </tr>
+                                            <tr colspan="9">
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MDT : </b>'.$mdt; ?></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <?php unset($_SESSION['selected_subsystem']); ?>
                                 </div>
                             </div>
                         </div>
@@ -375,7 +689,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var total_subsys = response.length;
                     for (var i = 0; i < total_subsys; i++) {
                         $('#subsystem').append(
-                            '<option value="'+response[0].id+'">'+
+                            '<option value="'+response[i].id+'">'+
                                 response[i].name+
                             '</option>'
                         );
@@ -393,6 +707,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
                 dataType: 'json',
                 success: function(response) {
+                    console.log(response[0].id);
                     $('#select_subsystem2').empty();
                     var total_subsys = response.length;
                     $('#select_subsystem2').append(
@@ -401,7 +716,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         );
                     for (var i = 0; i < total_subsys; i++) {
                         $('#select_subsystem2').append(
-                            '<option value="'+response[0].id+'">'+
+                            '<option value="'+response[i].id+'">'+
                                 response[i].name+
                             '</option>'
                         );

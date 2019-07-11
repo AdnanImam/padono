@@ -14,7 +14,7 @@
      public function index() {
      	$data['subsystems'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
         $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
-     	$data['data_master_submit'] = $this->master->getAllBy(array('user_id' => $_SESSION['id']));
+     	//$data['data_master_submit'] = $this->master->getAllBy(array('user_id' => $_SESSION['id']));
         $this->load->view('account/v_masterdata', $data);
      }
 
@@ -63,9 +63,12 @@
      public function changeSubsystem()
      {
          $subsystem_id = $this->input->post('changed_subsystem');
+         $asset_id = $this->input->post('select_asset');
          $data['subsystems'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
+         $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
          $data['data_master_submit'] = $this->master->getAllBy(array('user_id' => $_SESSION['id'], 'subsystem_id' => $subsystem_id));
          $_SESSION['selected_subsystem'] = $subsystem_id;
+         $_SESSION['selected_asset'] = $asset_id;
          $this->load->view('account/v_masterdata', $data);
      }
 
