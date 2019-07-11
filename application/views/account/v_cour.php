@@ -232,8 +232,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <p style="margin-top: 20px;"><?php echo 'Rp '.number_format($lost_revenue); ?></p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
-
-
                                 </div>
                             </div>
                         </div>
