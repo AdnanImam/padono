@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
 
-        <footer class="footer">
+<!--         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
                     &copy; <script>
@@ -199,7 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </script> <a href="https://bie.telkomuniversity.ac.id/">Teknik Industri</a>, Telkom University
                 </p>
             </div>
-        </footer>
+        </footer> -->
 
     </div>
     </div>

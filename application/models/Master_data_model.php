@@ -32,4 +32,9 @@ class Master_data_model extends CI_Model {
         	return $query->num_rows();
         }
 
+        public function update($data,$where) {
+                $this->db->update('master_data', $data, $where);
+                return $this->db->affected_rows();
+        }
+
 }

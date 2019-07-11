@@ -169,15 +169,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Operation Hours/day</label>
-                                    <input required name="operation_hours_day" type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
+                                    <input required name="operation_hours_day" type="number" class="form-control" id="operation_hours_day" placeholder="Enter Description">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Operation Hours/month</label>
-                                    <input required name="operation_hours_month" type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
+                                    <input required name="operation_hours_month" type="number" class="form-control" id="operation_hours_month" placeholder="Enter Description">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Operation Hours/years</label>
-                                    <input required name="operation_hours_year" type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
+                                    <input required name="operation_hours_year" id="operation_hours_year" type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Description">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-fill pull-right">Create Asset</button>
                             </form>
@@ -262,6 +262,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script type="text/javascript">
     $(document).ready(function() {
+
+        $('#operation_hours_day').keyup(function() {
+            var value = $(this).val();
+            $('#operation_hours_month').val(value * 26);
+            var month = $('#operation_hours_month').val();
+            $('#operation_hours_year').val(month * 12);
+        });
 
         $('#asset_table').DataTable();
 
