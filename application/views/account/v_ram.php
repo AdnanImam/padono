@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px" >
+                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
@@ -123,12 +123,429 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <div align="center" class="col-md-12">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card-body" style="padding:10px">
+                                            <h3 class="card-title">Reliability Availability Maintainability </h3>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
 
+                                        <div class="content">
+                                            <a href="#" class="btn btn-primary btn-fill">Download Data</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/ramilus.png" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Reliability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: coral;"><b>No<b></th>
+                                            <th style="color:#fff; background-color: coral;"><b><i>t(hours)</i></b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>A Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>B Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>X Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Y Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Z Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Reliability System</b></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>14</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Maintainability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: Olive;"><b>No</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b><i>T (Hours)</i></b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>A Axis</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>B Axis</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>X Axis</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>Y Axis</b></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Inherent Availability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: DodgerBlue;">No</th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><b>Sub Sistem</b></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><b>MTTF</b></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><b>MTTR</b></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><i><b>Inherent Availability</b></i></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Operational Availability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: FireBrick;">No</th>
+                                            <th style="color:#fff; background-color: FireBrick;"><b>Sub Sistem</b></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><b>Opeational Time</b></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><b>DT </b></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><i><b>Operational Availability</b></i></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                                <td>No Data</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
