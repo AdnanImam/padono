@@ -166,136 +166,133 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-
+                                                <td>24</td>
+                                                <td>93%</td>
+                                                <td>96%</td>
+                                                <td>96%</td>
+                                                <td>94%</td>
+                                                <td>97%</td>
+                                                <td>99%</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-
+                                                <td>48</td>
+                                                <td>86%</td>
+                                                <td>92%</td>
+                                                <td>93%</td>
+                                                <td>87%</td>
+                                                <td>95%</td>
+                                                <td>95%</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-
+                                                <td>72</td>
+                                                <td>80%</td>
+                                                <td>88%</td>
+                                                <td>89%</td>
+                                                <td>82%</td>
+                                                <td>92%</td>
+                                                <td>90%</td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>96</td>
+                                                <td>74%</td>
+                                                <td>84%</td>
+                                                <td>86%</td>
+                                                <td>77%</td>
+                                                <td>89%</td>
+                                                <td>84%</td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>120</td>
+                                                <td>68%</td>
+                                                <td>80%</td>
+                                                <td>82%</td>
+                                                <td>72%</td>
+                                                <td>87%</td>
+                                                <td>78%</td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>144</td>
+                                                <td>63%</td>
+                                                <td>77%</td>
+                                                <td>79%</td>
+                                                <td>67%</td>
+                                                <td>84%</td>
+                                                <td>72%</td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>168</td>
+                                                <td>59%</td>
+                                                <td>74%</td>
+                                                <td>76%</td>
+                                                <td>63%</td>
+                                                <td>82%</td>
+                                                <td>66%</td>
                                             </tr>
                                             <tr>
                                                 <td>9</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>192</td>
+                                                <td>55%</td>
+                                                <td>70%</td>
+                                                <td>73%</td>
+                                                <td>59%</td>
+                                                <td>80%</td>
+                                                <td>60%</td>
                                             </tr>
                                             <tr>
                                                 <td>10</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>216 </td>
+                                                <td>51%</td>
+                                                <td>67%</td>
+                                                <td>71%</td>
+                                                <td>55%</td>
+                                                <td>78%</td>
+                                                <td>54%</td>
                                             </tr>
                                             <tr>
                                                 <td>11</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>264</td>
+                                                <td>43%</td>
+                                                <td>63%</td>
+                                                <td>65%</td>
+                                                <td>48%</td>
+                                                <td>73%</td>
+                                                <td>44%</td>
                                             </tr>
                                             <tr>
                                                 <td>12</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>288</td>
+                                                <td>40%</td>
+                                                <td>59%</td>
+                                                <td>63%</td>
+                                                <td>45%</td>
+                                                <td>71%</td>
+                                                <td>39%</td>
                                             </tr>
                                             <tr>
                                                 <td>13</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>312</td>
+                                                <td>37%</td>
+                                                <td>57%</td>
+                                                <td>60%</td>
+                                                <td>42%</td>
+                                                <td>69%</td>
+                                                <td>35%</td>
                                             </tr>
                                             <tr>
                                                 <td>14</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>336</td>
+                                                <td>35%</td>
+                                                <td>54%</td>
+                                                <td>58%</td>
+                                                <td>39%</td>
+                                                <td>67%</td>
+                                                <td>31%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -324,99 +321,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>40%</td>
+                                                <td>32%</td>
+                                                <td>20%</td>
+                                                <td>19%</td>
+                                                <td>11%</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>64%</td>
+                                                <td>54%</td>
+                                                <td>36%</td>
+                                                <td>34%</td>
+                                                <td>21%</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>79%</td>
+                                                <td>69%</td>
+                                                <td>49%</td>
+                                                <td>47%</td>
+                                                <td>30%</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>87%</td>
+                                                <td>79%</td>
+                                                <td>59%</td>
+                                                <td>57%</td>
+                                                <td>38%</td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>92%</td>
+                                                <td>86%</td>
+                                                <td>68%</td>
+                                                <td>65%</td>
+                                                <td>45%</td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>95%</td>
+                                                <td>90%</td>
+                                                <td>74%</td>
+                                                <td>72%</td>
+                                                <td>51%</td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>97%</td>
+                                                <td>93%</td>
+                                                <td>79%</td>
+                                                <td>77%</td>
+                                                <td>56%</td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>98%</td>
+                                                <td>96%</td>
+                                                <td>83%</td>
+                                                <td>81%</td>
+                                                <td>61%</td>
                                             </tr>
                                             <tr>
                                                 <td>9</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>99%</td>
+                                                <td>97%</td>
+                                                <td>87%</td>
+                                                <td>85%</td>
+                                                <td>66%</td>
                                             </tr>
                                             <tr>
                                                 <td>10</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>99%</td>
+                                                <td>98%</td>
+                                                <td>89%</td>
+                                                <td>88%</td>
+                                                <td>69%</td>
                                             </tr>
                                             <tr>
                                                 <td>11</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>100%</td>
+                                                <td>99%</td>
+                                                <td>92%</td>
+                                                <td>90%</td>
+                                                <td>73%</td>
                                             </tr>
                                             <tr>
                                                 <td>12</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>100%</td>
+                                                <td>99%</td>
+                                                <td>93%</td>
+                                                <td>92%</td>
+                                                <td>76%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -446,38 +443,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>A Axis</td>
+                                                <td>1162,97</td>
+                                                <td>1,94</td>
+                                                <td>99,833%</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>B Axis</td>
+                                                <td>1409,73</td>
+                                                <td>2,56</td>
+                                                <td>99,818%</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>X Axis</td>
+                                                <td>1792,22</td>
+                                                <td>4,44</td>
+                                                <td>99,753</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>Y Axis</td>
+                                                <td>5148,07</td>
+                                                <td>4,78</td>
+                                                <td>99,914%</td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>Z Axis</td>
+                                                <td>9781,66</td>
+                                                <td>8,45</td>
+                                                <td>99,914%</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -506,38 +503,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>A Axis</td>
+                                                <td>34896</td>
+                                                <td>54,5000</td>
+                                                <td>99,84%</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>B Axis</td>
+                                                <td>34896</td>
+                                                <td>104,6700</td>
+                                                <td>99,70%</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>X Axis</td>
+                                                <td>34896</td>
+                                                <td>199,2500</td>
+                                                <td>99,43%</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>Y Axis</td>
+                                                <td>34896</td>
+                                                <td>81,2500</td>
+                                                <td>99,77%</td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
-                                                <td>No Data</td>
+                                                <td>Z Axis</td>
+                                                <td>34896</td>
+                                                <td>128,2500</td>
+                                                <td>99.63%</td>
                                             </tr>
                                         </tbody>
                                     </table>
