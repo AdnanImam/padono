@@ -12,7 +12,14 @@
      //Load Halaman dashboard
      public function index() {
      	$data['plants'] = $this->plant->getAllBy(array('user_id' => $_SESSION['id']));
-     	$data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
+		 $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
+		 
+		if($data['plants'] == null)
+			$data['plants'] = array();
+		
+		if($data['assets'] == null)
+			$data['assets'] = array();
+
         $this->load->view('account/v_assetform', $data);
      }
 
