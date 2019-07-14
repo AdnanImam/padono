@@ -34,18 +34,8 @@ class Libexcel extends PHPExcel {
                 FALSE
             );
 
-   //          echo $rowData[0][0]."<br>";
-			// echo $rowData[0][1]."<br>";
-			// echo $rowData[0][2]."<br>";
-			// echo $rowData[0][3]."<br>";
-			// echo $rowData[0][4]."<br>";
-			// echo $rowData[0][5]."<br>";
-
-			// if($rowData[0][5] == '') echo "true";
-
             if($rowData[0][0] == '') $date_failure_start = "";
             else $date_failure_start = date('Y-m-d', PHPExcel_Shared_Date::ExcelToPHP($rowData[0][0]));
-    //         // $date_failure_start = date('Y-m-d', PHPExcel_Shared_Date::ExcelToPHP($rowData[0][0]));
             
             if($rowData[0][1] == '') $time_failure_start = "";
             else $time_failure_start = PHPExcel_Style_NumberFormat::toFormattedString($rowData[0][1], 'hh:mm:ss');
@@ -66,8 +56,11 @@ class Libexcel extends PHPExcel {
                   "failure_start"=> $date_failure_start.' '.$time_failure_start,
                   "start_repair"=> $date_start_repair.' '.$time_start_repair,
                   "repair_finish"=> $date_repair_finish.' '.$time_repair_finish,
-            );
-            array_push($list_data, $data);
+			);
+			
+			//filter hanya data yang lengkap yang di masukkan
+			if($data["failure_start"] != " " && $data["start_repair"] != " " && $data["repair_finish"] != " ")
+            	array_push($list_data, $data);
     	}
     	return $list_data;
 	}

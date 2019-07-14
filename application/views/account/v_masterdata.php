@@ -257,46 +257,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 $no = 0; $temp = ""; foreach($data_master_submit as $preview) { 
                                             ?>
                                             <tr>
-                                                <td><?php echo ($no+1); ?></td>
+                                                <td><?php echo ($no+1);  $no++?></td>
                                                 <td><?php echo $preview->failure_start; ?></td>
                                                 <td><?php echo $preview->start_repair; ?></td>
                                                 <td><?php echo $preview->repair_finish; ?></td>
-                                                <?php $downtime =  date_diff(date_create($preview->repair_finish), date_create($preview->failure_start)); ?>
-                                                <td><?php echo $downtime->h.','.$downtime->i; ?></td>
-                                                <?php $ttr =  date_diff(date_create($preview->repair_finish), date_create($preview->start_repair)); ?>
-                                                <td><?php echo $ttr->h.','.$ttr->i; ?></td>
-                                                <?php $ttf = ""; $ttf_h = ""; $ttf_i = ""; if($no >= 1) {  ?>
-                                                    <?php $ttf =  date_diff(date_create($data_master_submit[$no-1]->repair_finish), date_create($preview->failure_start)); ?>
-                                                    <td><?php echo $ttf->h.','.$ttf->i; ?></td>
-                                                    <?php $ttf_h = $ttf->h; $ttf_i = $ttf->i; ?>
-                                                <?php } else { ?>
-                                                    <td></td>
-                                                <?php } ?>
+                                                <td><?php echo $preview->dt; ?></td>
+                                                <td><?php echo $preview->ttr; ?></td>
+                                                <td><?php echo $preview->ttf; ?></td>
                                             </tr>
-                                            <?php 
-                                                    $no++; 
-                                                    $this->load->model('Master_data_model', 'master');
-                                                    if($no < 1) {
-                                                        $ttrs = $ttr->h.'.'.$ttr->i;
-                                                        $downtimes = $downtime->h.'.'.$downtime->i;
-                                                        $data = array(
-                                                            'ttr' => (float)$ttrs,
-                                                            'dt' => (float)$downtimes
-                                                        );
-                                                        $this->master->update($data, array('id' => $preview->id));
-                                                    } else {
-                                                        $ttrs = $ttr->h.'.'.$ttr->i;
-                                                        $downtimes = $downtime->h.'.'.$downtime->i;
-                                                        $ttfs = $ttf_h.'.'.$ttf_i;
-                                                        $data = array(
-                                                            'ttr' => (float) $ttrs,
-                                                            'dt' => (float) $downtimes,
-                                                            'ttf' => (float) $ttfs
-                                                        );
-                                                        $this->master->update($data, array('id' => $preview->id));
-                                                    }
-                                                } 
-                                            ?>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                     <br>
@@ -428,7 +397,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $mttf = ""; 
                                             $dmax_minimum = min($dmax_ttf_normal, $dmax_ttf_exponen, $dmax_ttf_weibull); 
                                             if($dmax_minimum == $dmax_ttf_weibull) {
-                                                $mttf = ($mean_ttf*$CI->kalkulasi->gamma(1+(1/$ttf_shape)));
+                                                $mttf = ($ttf_scale*$CI->kalkulasi->gamma(1+(1/$ttf_shape)));
                                             } else {
                                                 $mttf = $mean_ttf;
                                             }

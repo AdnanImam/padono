@@ -126,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card">
                                 <div class="header">
                                     <h2 class="title"><?php echo $total_plant; ?></h2>
@@ -137,7 +137,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card">
 
                                 <div class="header">
@@ -149,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card">
 
                                 <div class="header">
@@ -161,44 +161,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div> 
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="header">
-                                    <h2 class="title">20</h2>
-                                    <p class="category">???</p>
-                                </div>
-
-                                <div class="content">
-                                    <a href="http://google.com"  class="btn btn-primary btn-fill ">???</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- INI TABEL GRAFIK NYA -->
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card ">
-                                <div class="header">
-                                    <h4 class="title">2014 Sales</h4>
-                                    <p class="category">All products including Taxes</p>
-                                </div>
-                                <div class="content">
-                                    <div id="chartActivity" class="ct-chart"></div>
-
-                                    <div class="footer">
-                                        <div class="legend">
-                                            <i class="fa fa-circle text-info"></i> COUR
-                                            <i class="fa fa-circle text-danger"></i> RAM
-                                        </div>
-                                        <hr>
-                                        <div class="stats">
-                                            <i class="fa fa-check"></i> Data information certified
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

@@ -14,6 +14,11 @@ class Master_data_model extends CI_Model {
                 return $this->db->insert_batch('master_data', $data);
         }
 
+        public function delete_old_data($id)
+        {
+                return $this->db->delete('master_data', array('subsystem_id' => $id)); 
+        }
+
         public function getAllBy($where)
         {
         	$this->db->where($where);

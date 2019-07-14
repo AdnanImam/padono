@@ -12,7 +12,15 @@
      //Load Halaman dashboard
      public function index() {
      	$data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
-     	$data['subsys'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
+        $data['subsys'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
+        
+		
+		if($data['assets'] == null)
+            $data['assets'] = array();
+        		
+		if($data['subsys'] == null)
+            $data['subsys'] = array();
+         
         $this->load->view('account/v_subsystemform', $data);
      }
 

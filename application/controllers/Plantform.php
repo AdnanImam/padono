@@ -10,7 +10,9 @@
  
      //Load Halaman dashboard
      public function index() {
-     	$data['plants'] = $this->plant->getAllBy(array('user_id' => $_SESSION['id']));
+        $data['plants'] = $this->plant->getAllBy(array('user_id' => $_SESSION['id']));
+        if($data['plants'] == null)
+            $data['plants'] = array();
         $this->load->view('account/v_plantform', $data);
      }
 

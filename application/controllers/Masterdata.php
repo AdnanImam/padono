@@ -37,12 +37,23 @@
             $this->load->library('libexcel');
             $import = $this->libexcel->import_master($filepath);
             $total_data = count($import);
-            for ($i=0; $i < $total_data; $i++) { 
+            for ($i=0; $i < $total_data; $i++) {
+                $ttr =  date_diff(date_create($import[$i]['repair_finish']), date_create($import[$i]['start_repair']));
+                $import[$i]['ttr'] = ($ttr->h*60+$ttr->i)/60;
+                if($i == 0)
+                    $import[$i]['ttf'] = 0;
+                else {
+                    $ttf = date_diff(date_create($import[$i-1]['repair_finish']), date_create($import[$i]['failure_start']));
+                    $import[$i]['ttf'] = ((($ttf->days*24) + $ttf->h)*60+$ttf->i)/60;
+                }
+                $downtime = date_diff(date_create($import[$i]['repair_finish']), date_create($import[$i]['failure_start']));
+                $import[$i]['dt'] = (($downtime->h*60)+$downtime->i)/60;
             	$import[$i]['subsystem_id'] = $input_data['subsystem'];
             	$import[$i]['user_id'] = $_SESSION['id'];
             }
             $data['import_preview'] = $import;
             $data['subsystems'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
+            $_SESSION['subsystem-id'] = $input_data['subsystem'];
             $_SESSION['data-master'] = $data['import_preview'];
             $_SESSION['imported'] = "true";
             $this->load->view('account/v_masterdata', $data);
@@ -52,6 +63,7 @@
      public function submit_master()
      {
      	if(!empty($_SESSION['data-master'])) {
+            $this->master->delete_old_data($_SESSION['subsystem-id']);
      		$insert_master = $this->master->insert_batch($_SESSION['data-master']);
      		if($insert_master) {
      			redirect('masterdata');

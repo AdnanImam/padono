@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px" >
+                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
@@ -123,12 +123,426 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <div align="center" class="col-md-12">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card-body" style="padding:10px">
+                                            <h3 class="card-title">Reliability Availability Maintainability </h3>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
 
+                                        <div class="content">
+                                            <a href="#" class="btn btn-primary btn-fill">Download Data</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/ramilus.png" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Reliability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: coral;"><b>No<b></th>
+                                            <th style="color:#fff; background-color: coral;"><b><i>t(hours)</i></b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>A Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>B Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>X Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Y Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Z Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Reliability System</b></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>24</td>
+                                                <td>93%</td>
+                                                <td>96%</td>
+                                                <td>96%</td>
+                                                <td>94%</td>
+                                                <td>97%</td>
+                                                <td>99%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>48</td>
+                                                <td>86%</td>
+                                                <td>92%</td>
+                                                <td>93%</td>
+                                                <td>87%</td>
+                                                <td>95%</td>
+                                                <td>95%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>72</td>
+                                                <td>80%</td>
+                                                <td>88%</td>
+                                                <td>89%</td>
+                                                <td>82%</td>
+                                                <td>92%</td>
+                                                <td>90%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>96</td>
+                                                <td>74%</td>
+                                                <td>84%</td>
+                                                <td>86%</td>
+                                                <td>77%</td>
+                                                <td>89%</td>
+                                                <td>84%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>120</td>
+                                                <td>68%</td>
+                                                <td>80%</td>
+                                                <td>82%</td>
+                                                <td>72%</td>
+                                                <td>87%</td>
+                                                <td>78%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>144</td>
+                                                <td>63%</td>
+                                                <td>77%</td>
+                                                <td>79%</td>
+                                                <td>67%</td>
+                                                <td>84%</td>
+                                                <td>72%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>168</td>
+                                                <td>59%</td>
+                                                <td>74%</td>
+                                                <td>76%</td>
+                                                <td>63%</td>
+                                                <td>82%</td>
+                                                <td>66%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>192</td>
+                                                <td>55%</td>
+                                                <td>70%</td>
+                                                <td>73%</td>
+                                                <td>59%</td>
+                                                <td>80%</td>
+                                                <td>60%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>216 </td>
+                                                <td>51%</td>
+                                                <td>67%</td>
+                                                <td>71%</td>
+                                                <td>55%</td>
+                                                <td>78%</td>
+                                                <td>54%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>264</td>
+                                                <td>43%</td>
+                                                <td>63%</td>
+                                                <td>65%</td>
+                                                <td>48%</td>
+                                                <td>73%</td>
+                                                <td>44%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>288</td>
+                                                <td>40%</td>
+                                                <td>59%</td>
+                                                <td>63%</td>
+                                                <td>45%</td>
+                                                <td>71%</td>
+                                                <td>39%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>312</td>
+                                                <td>37%</td>
+                                                <td>57%</td>
+                                                <td>60%</td>
+                                                <td>42%</td>
+                                                <td>69%</td>
+                                                <td>35%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>14</td>
+                                                <td>336</td>
+                                                <td>35%</td>
+                                                <td>54%</td>
+                                                <td>58%</td>
+                                                <td>39%</td>
+                                                <td>67%</td>
+                                                <td>31%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Maintainability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: Olive;"><b>No</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b><i>T (Hours)</i></b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>A Axis</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>B Axis</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>X Axis</b></th>
+                                            <th style="color:#fff; background-color: Olive;"><b>Y Axis</b></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>40%</td>
+                                                <td>32%</td>
+                                                <td>20%</td>
+                                                <td>19%</td>
+                                                <td>11%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>64%</td>
+                                                <td>54%</td>
+                                                <td>36%</td>
+                                                <td>34%</td>
+                                                <td>21%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>79%</td>
+                                                <td>69%</td>
+                                                <td>49%</td>
+                                                <td>47%</td>
+                                                <td>30%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>87%</td>
+                                                <td>79%</td>
+                                                <td>59%</td>
+                                                <td>57%</td>
+                                                <td>38%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>92%</td>
+                                                <td>86%</td>
+                                                <td>68%</td>
+                                                <td>65%</td>
+                                                <td>45%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>95%</td>
+                                                <td>90%</td>
+                                                <td>74%</td>
+                                                <td>72%</td>
+                                                <td>51%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>97%</td>
+                                                <td>93%</td>
+                                                <td>79%</td>
+                                                <td>77%</td>
+                                                <td>56%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>98%</td>
+                                                <td>96%</td>
+                                                <td>83%</td>
+                                                <td>81%</td>
+                                                <td>61%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>99%</td>
+                                                <td>97%</td>
+                                                <td>87%</td>
+                                                <td>85%</td>
+                                                <td>66%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>99%</td>
+                                                <td>98%</td>
+                                                <td>89%</td>
+                                                <td>88%</td>
+                                                <td>69%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>100%</td>
+                                                <td>99%</td>
+                                                <td>92%</td>
+                                                <td>90%</td>
+                                                <td>73%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>100%</td>
+                                                <td>99%</td>
+                                                <td>93%</td>
+                                                <td>92%</td>
+                                                <td>76%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Inherent Availability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: DodgerBlue;">No</th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><b>Sub Sistem</b></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><b>MTTF</b></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><b>MTTR</b></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><i><b>Inherent Availability</b></i></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>A Axis</td>
+                                                <td>1162,97</td>
+                                                <td>1,94</td>
+                                                <td>99,833%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>B Axis</td>
+                                                <td>1409,73</td>
+                                                <td>2,56</td>
+                                                <td>99,818%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>X Axis</td>
+                                                <td>1792,22</td>
+                                                <td>4,44</td>
+                                                <td>99,753</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Y Axis</td>
+                                                <td>5148,07</td>
+                                                <td>4,78</td>
+                                                <td>99,914%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Z Axis</td>
+                                                <td>9781,66</td>
+                                                <td>8,45</td>
+                                                <td>99,914%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Operational Availability</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <th style="color:#fff; background-color: FireBrick;">No</th>
+                                            <th style="color:#fff; background-color: FireBrick;"><b>Sub Sistem</b></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><b>Opeational Time</b></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><b>DT </b></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><i><b>Operational Availability</b></i></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>A Axis</td>
+                                                <td>34896</td>
+                                                <td>54,5000</td>
+                                                <td>99,84%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>B Axis</td>
+                                                <td>34896</td>
+                                                <td>104,6700</td>
+                                                <td>99,70%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>X Axis</td>
+                                                <td>34896</td>
+                                                <td>199,2500</td>
+                                                <td>99,43%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Y Axis</td>
+                                                <td>34896</td>
+                                                <td>81,2500</td>
+                                                <td>99,77%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Z Axis</td>
+                                                <td>34896</td>
+                                                <td>128,2500</td>
+                                                <td>99.63%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
