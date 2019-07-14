@@ -157,7 +157,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
 
                                             <label for="exampleInputPassword1"><b> Jumlah Biaya Peralatan</b></label>
-                                            <input type="number" name="material_price" class="form-control" id="#" placeholder="Enter Number">
+                                            <div class="input-group">
+                                                 <div class="input-group-addon">Rp</div>
+                                                 <input type="number" name="material_price" class="form-control" id="#" placeholder="Enter Number">
+                                            </div>
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Jumlah Hari Kerja Efektif per Bulan</b></label>
@@ -174,14 +177,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Enter Number">
 
                                             <label for="exampleInputPassword1"><b>Gaji Teknisi Kerja per Bulan</b></label>
-                                            <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Enter Number">
+                                            <div class="input-group">
+                                                 <div class="input-group-addon">Rp</div>
+                                                 <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Enter Number">
+                                            </div>
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Kapasitas Mesin Per Jam</b></label>
-                                            <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Enter Number">
+                                            <div class="input-group">
+                                                 <div class="input-group-addon">Pcs</div>
+                                                 <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Enter Number">
+                                            </div>
 
                                             <label for="exampleInputPassword1"><b>Harga Produk Per PCS</b></label>
-                                            <input type="number" name="product_price" class="form-control" id="#" placeholder="Enter Number">
+                                            <div class="input-group">
+                                                 <div class="input-group-addon">Rp</div>
+                                                 <input type="number" name="product_price" class="form-control" id="#" placeholder="Enter Number">
+                                            </div>
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Number Of Failure</b></label>

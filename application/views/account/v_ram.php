@@ -148,152 +148,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Reliability</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="title">Reliability</h4>
+                                            <p class="category">Here is a subtitle for this table</p>  
+                                        </div>
+                                        <div class="col-md-6">
+                                            <form style="width: 50%;" class="pull-right">
+                                                <select class="form-control">
+                                                    <?php  foreach($assets as $asset) { ?>
+                                                    <option value="<?php echo $asset->id; ?>"><?php echo 'Plant - '.$asset->plant_id.' : '.$asset->name; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="content table-responsive table-full-width">
+                                    <!-- <p class="text-center">Please choose asset first to see Reliability Data</p> -->
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
-                                            <th style="color:#fff; background-color: coral;"><b>No<b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Asset<b></th>
                                             <th style="color:#fff; background-color: coral;"><b><i>t(hours)</i></b></th>
-                                            <th style="color:#fff; background-color: coral;"><b>A Axis</b></th>
-                                            <th style="color:#fff; background-color: coral;"><b>B Axis</b></th>
-                                            <th style="color:#fff; background-color: coral;"><b>X Axis</b></th>
-                                            <th style="color:#fff; background-color: coral;"><b>Y Axis</b></th>
-                                            <th style="color:#fff; background-color: coral;"><b>Z Axis</b></th>
+                                            <?php foreach($subsystem_of_first_asset as $as) { ?>
+                                            <th style="color:#fff; background-color: coral;"><b><?php echo 'Subsistem( '.$as->name.' )'; ?></b></th>
+                                            <?php } ?>
                                             <th style="color:#fff; background-color: coral;"><b>Reliability System</b></th>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>24</td>
-                                                <td>93%</td>
-                                                <td>96%</td>
-                                                <td>96%</td>
-                                                <td>94%</td>
-                                                <td>97%</td>
-                                                <td>99%</td>
+                                                
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>48</td>
-                                                <td>86%</td>
-                                                <td>92%</td>
-                                                <td>93%</td>
-                                                <td>87%</td>
-                                                <td>95%</td>
-                                                <td>95%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>72</td>
-                                                <td>80%</td>
-                                                <td>88%</td>
-                                                <td>89%</td>
-                                                <td>82%</td>
-                                                <td>92%</td>
-                                                <td>90%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>96</td>
-                                                <td>74%</td>
-                                                <td>84%</td>
-                                                <td>86%</td>
-                                                <td>77%</td>
-                                                <td>89%</td>
-                                                <td>84%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>120</td>
-                                                <td>68%</td>
-                                                <td>80%</td>
-                                                <td>82%</td>
-                                                <td>72%</td>
-                                                <td>87%</td>
-                                                <td>78%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>144</td>
-                                                <td>63%</td>
-                                                <td>77%</td>
-                                                <td>79%</td>
-                                                <td>67%</td>
-                                                <td>84%</td>
-                                                <td>72%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>168</td>
-                                                <td>59%</td>
-                                                <td>74%</td>
-                                                <td>76%</td>
-                                                <td>63%</td>
-                                                <td>82%</td>
-                                                <td>66%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>192</td>
-                                                <td>55%</td>
-                                                <td>70%</td>
-                                                <td>73%</td>
-                                                <td>59%</td>
-                                                <td>80%</td>
-                                                <td>60%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>216 </td>
-                                                <td>51%</td>
-                                                <td>67%</td>
-                                                <td>71%</td>
-                                                <td>55%</td>
-                                                <td>78%</td>
-                                                <td>54%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>264</td>
-                                                <td>43%</td>
-                                                <td>63%</td>
-                                                <td>65%</td>
-                                                <td>48%</td>
-                                                <td>73%</td>
-                                                <td>44%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>288</td>
-                                                <td>40%</td>
-                                                <td>59%</td>
-                                                <td>63%</td>
-                                                <td>45%</td>
-                                                <td>71%</td>
-                                                <td>39%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>13</td>
-                                                <td>312</td>
-                                                <td>37%</td>
-                                                <td>57%</td>
-                                                <td>60%</td>
-                                                <td>42%</td>
-                                                <td>69%</td>
-                                                <td>35%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>14</td>
-                                                <td>336</td>
-                                                <td>35%</td>
-                                                <td>54%</td>
-                                                <td>58%</td>
-                                                <td>39%</td>
-                                                <td>67%</td>
-                                                <td>31%</td>
-                                            </tr>
+                                            
                                         </tbody>
                                     </table>
 
@@ -588,16 +474,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
     $(document).ready(function() {
 
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>Proyek Ahkhir Dono</b> - s1 Teknik industri."
-
-        }, {
-            type: 'info',
-            timer: 4000
-        });
 
     });
 

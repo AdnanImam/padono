@@ -292,4 +292,22 @@ class Kalkulasi
         }
         return exp(0 - $tmp + log(2.5066282746310005024157652848110452530069867406099 * $summer / $x));
     }
+
+    function calculateReliability($oprationalHourPerDay, $ttf)
+    {
+        $row = 0;
+        $result = array();
+        $reliability = 100;
+        $eta = $this->calculateEta($ttf);
+        $beta = $this->calclateBeta($ttf);
+        $tHour = $oprationalHourPerDay;
+
+        while (round($reliability, 2)!=0.000000000000000 && $row<=50) {
+            $reliability = exp(-($tHour/$eta)*exp($beta));
+            array_push($result, array('t_hour' => $tHour, 'reliability' => round($reliability, 2)*100));
+            $tHour += $oprationalHourPerDay;
+            $row+=1;
+        }
+        return $result;
+    }
 }
