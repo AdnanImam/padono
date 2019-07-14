@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>
                             <i class="pe-7s-rocket"></i>
 
-                            <?php echo anchor('login/logout','KELUAR'); ?>
+                            <?php echo anchor('login/logout','LOG OUT'); ?>
                         </p>
                         </a>
                     </li>
@@ -154,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <div class="header">
                                     <h2 class="title"><?php echo $total_subsystem; ?></h2>
-                                    <p class="category">Subsystem</p>
+                                    <p class="category">SUBSYSTEM</p>
                                 </div>
                                 <div class="content">
                                     <a href="<?php echo base_url()?>index.php/Subsystemform" class="btn btn-primary btn-fill">Create Subsystem</a>

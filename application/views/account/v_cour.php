@@ -102,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>
                             <i class="pe-7s-rocket"></i>
 
-                            <?php echo anchor('login/logout','KELUAR'); ?>
+                            <?php echo anchor('login/logout','LOG OUT'); ?>
                         </p>
                         </a>
                     </li>
@@ -150,50 +150,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <input type="hidden" name="asset_id" id="asset_id" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1"><b>Jumlah Price Maintenance Material</b></label>
+                                            <label for="exampleInputPassword1"><b>Amount of Material Maintenance</b></label>
                                             <div class="input-group">
                                                  <div class="input-group-addon">Rp</div>
-                                                 <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Enter Number">
+                                                 <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Price In Rupiah">
                                             </div>
-
-                                            <label for="exampleInputPassword1"><b> Jumlah Biaya Peralatan</b></label>
-                                            <div class="input-group">
-                                                 <div class="input-group-addon">Rp</div>
-                                                 <input type="number" name="material_price" class="form-control" id="#" placeholder="Enter Number">
-                                            </div>
+                                            <label for="exampleInputPassword1"><b> Total Equipment Cost</b></label>
+                                            <input type="number" name="material_price" class="form-control" id="#" placeholder="Price In Rupiah">
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
-                                            <label for="exampleInputPassword1"><b>Jumlah Hari Kerja Efektif per Bulan</b></label>
-                                            <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Enter Number">
+                                            <label for="exampleInputPassword1"><b>Effective Working Days per Month</b></label>
+                                            <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Number Of Days">
 
-                                            <label for="exampleInputPassword1"><b>Jumlah Sift Kerja per Hari</b></label>
-                                            <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Enter Number">
+                                            <label for="exampleInputPassword1"><b>Job Sift Amount per Day</b></label>
+                                            <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Number Of Shift">
 
-                                            <label for="exampleInputPassword1"><b>Jumlah Jam Kerja per Sift</b></label>
-                                            <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Enter Number">
+                                            <label for="exampleInputPassword1"><b>Working Hours per Sift</b></label>
+                                            <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Number Of Days">
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
-                                            <label for="exampleInputPassword1"><b>Jumlah Teknisi per Maintenance</b></label>
-                                            <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Enter Number">
-
-                                            <label for="exampleInputPassword1"><b>Gaji Teknisi Kerja per Bulan</b></label>
-                                            <div class="input-group">
-                                                 <div class="input-group-addon">Rp</div>
-                                                 <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Enter Number">
-                                            </div>
+                                            <label for="exampleInputPassword1"><b>Number of Technicians per Maintenance</b></label>
+                                            <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Number of Person">
+                                            <label for="exampleInputPassword1"><b>Salary for Work Technicians per Month</b></label>
+                                            <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Price In Rupiah">
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
-                                            <label for="exampleInputPassword1"><b>Kapasitas Mesin Per Jam</b></label>
-                                            <div class="input-group">
-                                                 <div class="input-group-addon">Pcs</div>
-                                                 <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Enter Number">
-                                            </div>
+                                            <label for="exampleInputPassword1"><b>Hourly Engine Capacity</b></label>
+                                            <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Number of Pieces">
 
-                                            <label for="exampleInputPassword1"><b>Harga Produk Per PCS</b></label>
-                                            <div class="input-group">
-                                                 <div class="input-group-addon">Rp</div>
-                                                 <input type="number" name="product_price" class="form-control" id="#" placeholder="Enter Number">
-                                            </div>
+                                            <label for="exampleInputPassword1"><b>Price of one-piece product</b></label>
+                                            <input type="number" name="product_price" class="form-control" id="#" placeholder="Price In Rupiah">
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Number Of Failure</b></label>
@@ -228,7 +214,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Biaya Engineer</h4>
+                                    <h4 class="title">Engineer Fee</h4>
                                     <p style="margin-top: 20px;"><?php echo 'Rp '.number_format($biaya_engineer).' / Hour'; ?></p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
@@ -363,7 +349,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <form action="/action_page.php" class="form-container">
                             <h2>Currency</h2>
 
-                            <label for="email"><b>Masukkan Nilai Tukar Rupiah Ke Dollar </b></label>
+                            <label for="email"><b>Enter the Exchange Rate of Rupiah to Dollar</b></label>
                             <input type="number" placeholder="Nilai Tukar" name="currency" required>
 
                             <button type="submit" class="btn">Update</button>

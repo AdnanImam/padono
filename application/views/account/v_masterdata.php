@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>
                             <i class="pe-7s-rocket"></i>
 
-                            <?php echo anchor('login/logout','KELUAR'); ?>
+                            <?php echo anchor('login/logout','LOG OUT'); ?>
                         </p>
                         </a>
                     </li>
@@ -133,43 +133,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card">
                                 <div class="card-body" style="padding:10px">
                                     <h3 class="card-title" style="margin-left: 25px;">Import Failure Event</h3>
-                                    <p class="card-text" style="margin-left: 25px;">Silahkan mengimport file excel failure event dengan ketentuan berikut :</p>
+                                    <p class="card-text" style="margin-left: 25px;">
+                                        Please import the failed Excel event file with the following conditions:</p>
                                     <ol class="text-default">
-                                        <small><li>File Excel yang diimport harus sesuai dengan template yang telah ditentukan</li></small>
-                                        <small><li>Jika belum memiliki, silahkan download template <a href="<?php echo base_url(); ?>index.php/masterdata/download_template" class="text-primary"><b>disini</b></a></li></small>
-                                        <small><li>Kolom yang kosong akan dianggap sebagai error, sehingga tidak akan diimport, untuk mengatasi hal tersebut silahkan beri nilai "--" sebagai penanda kolom kosong.</li></small>
+                                        <small>
+                                            <li>The imported Excel file must match the predetermined template</li>
+                                        </small>
+                                        <small>
+                                            <li>If you don't have it, please download the template <a href="<?php echo base_url(); ?>index.php/masterdata/download_template" class="text-primary"><b>here</b></a></li>
+                                        </small>
+                                        <small>
+                                            <li>An empty column will be considered an error, so it will not be imported, to overcome this please give the value "-" as a blank column marker.</li>
+                                        </small>
                                     </ol>
                                     <form enctype="multipart/form-data" method="POST" action="<?php echo base_url(); ?>index.php/Masterdata/import_master">
-                                    <div class="row" style="padding-left: 40px;">
-                                        <div class="cold-md-6">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <label>Asset</label>
-                                                    <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>">
-                                                    <select name="select_asset" id="select_asset" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
-                                                        <option disabled selected>-- Pilih Asset --</option>
-                                                        <?php $no=1; foreach($assets as $asset) { ?>
+                                        <div class="row" style="padding-left: 40px;">
+                                            <div class="cold-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Asset</label>
+                                                        <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>">
+                                                        <select name="select_asset" id="select_asset" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                            <option disabled selected>-- Select Assets --</option>
+                                                            <?php $no=1; foreach($assets as $asset) { ?>
                                                             <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
-                                                        <?php $no++; } ?>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label>Subsystem</label>
-                                                    <select name="subsystem" id="subsystem" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
-                                                        <option disabled selected>-- Pilih Asset Terlebih Dahulu --</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label>File Excel</label>
-                                                    <input type="file" class="input-sm" name="excel_file">          
+                                                            <?php $no++; } ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>Subsystem</label>
+                                                        <select name="subsystem" id="subsystem" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                            <option disabled selected>-- Select Assets first --</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label>Excel File</label>
+                                                        <input type="file" class="input-sm" name="excel_file">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <br>
-                                    <input style="margin-left: 28px;" type="submit" name="submit" value="Import" class="btn btn-primary btn-sm btn-fill">
+                                        <br>
+                                        <input style="margin-left: 28px;" type="submit" name="submit" value="Import" class="btn btn-primary btn-sm btn-fill">
                                     </form>
-                                    <br>                                    
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +232,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <select name="select_asset" id="select_asset2" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
                                                         <option disabled selected>-- Pilih Asset --</option>
                                                         <?php $no=1; foreach($assets as $asset) { ?>
-                                                            <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
+                                                        <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
                                                         <?php $no++; } ?>
                                                     </select>
                                                 </div>
@@ -300,10 +307,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $ttr_scale = $CI->kalkulasi->calculateEta($ttr_array);
 
                                             $mttr = ""; 
+                                            $distribusi_mttr = "";
                                             $dmax_minimum = min($dmax_ttr_normal, $dmax_ttr_exponen, $dmax_ttr_weibull); 
                                             if($dmax_minimum == $dmax_ttr_weibull) {
+                                                $distribusi_mttr = "Weibull";
                                                 $mttr = ($mean_ttr*$CI->kalkulasi->gamma(1+(1/$ttr_shape)));
                                             } else {
+                                                if($dmax_minimum == $dmax_ttr_exponen){
+                                                    $distribusi_mttr = "Exponen";
+                                                } else {
+                                                    $distribusi_mttr = "Normal";
+                                                }
                                                 $mttr = $mean_ttr;
                                             }
                                             $data_mttr = array('mttr' => $mttr);
@@ -352,7 +366,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $ttr_scale; ?></td>
                                             </tr>
                                             <tr colspan="9">
-                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTR : </b>'.$mttr; ?></td>
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTR : </b>'.$mttr.' ('.$distribusi_mttr.')'; ?></td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -361,7 +375,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div> <!-- Row 2-->
 
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-12 ">
                             <div class="card">
                                 <div class="header" style="padding-bottom: 10px;">
@@ -395,10 +409,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $ttf_scale = $CI->kalkulasi->calculateEta($ttf_array);
 
                                             $mttf = ""; 
+                                            $distribusi_mttf = "";
                                             $dmax_minimum = min($dmax_ttf_normal, $dmax_ttf_exponen, $dmax_ttf_weibull); 
                                             if($dmax_minimum == $dmax_ttf_weibull) {
+                                                $distribusi_mttf = "Weibull";
                                                 $mttf = ($ttf_scale*$CI->kalkulasi->gamma(1+(1/$ttf_shape)));
                                             } else {
+                                                if($dmax_minimum == $dmax_ttf_exponen){
+                                                    $distribusi_mttf = "Exponen";
+                                                } else {
+                                                    $distribusi_mttf = "Normal";
+                                                }
                                                 $mttf = $mean_ttf;
                                             }
                                             $data_mttf = array('mttf' => $mttf);
@@ -447,7 +468,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $ttf_scale; ?></td>
                                             </tr>
                                             <tr colspan="9">
-                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTF : </b>'.$mttf; ?></td>
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTF : </b>'.$mttf.' ('.$distribusi_mttf.')'; ?></td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -482,10 +503,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $dt_scale = $CI->kalkulasi->calculateEta($dt_array);
 
                                             $mdt = ""; 
+                                            $distribusi_mdt = "";
                                             $dmax_minimum = min($dmax_dt_normal, $dmax_dt_exponen, $dmax_dt_weibull); 
                                             if($dmax_minimum == $dmax_dt_weibull) {
+                                                $distribusi_mdt = "Weibull";
                                                 $mdt = ($mean_dt*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
                                             } else {
+                                                if($dmax_minimum == $dmax_dt_exponen){
+                                                    $distribusi_mdt = "Exponen";
+                                                } else {
+                                                    $distribusi_mdt = "Normal";
+                                                }
                                                 $mdt = $mean_dt;
                                             }
                                             $data_mdt = array('mdt' => $mdt);
@@ -534,7 +562,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $dt_scale; ?></td>
                                             </tr>
                                             <tr colspan="9">
-                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MDT : </b>'.$mdt; ?></td>
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MDT : </b>'.$mdt.' ('.$distribusi_mdt.')'; ?></td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -553,17 +581,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="col-md-12" style="margin-top: 15px; margin-bottom: 15px;">
                                             <form method="POST" action="<?php echo base_url(); ?>index.php/masterdata/changeSubsystem">
                                                 <div class="col-md-3">
-                                                <select name="select_asset" id="select_asset2" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
-                                                    <option disabled selected>-- Pilih Asset --</option>
-                                                    <?php $no=1; foreach($assets as $asset) { ?>
+                                                    <select name="select_asset" id="select_asset2" class="form-control input-sm" style="font-size: 11px; padding: 5px;">
+                                                        <option disabled selected>-- Pilih Asset --</option>
+                                                        <?php $no=1; foreach($assets as $asset) { ?>
                                                         <option value="<?php echo $asset->id; ?>"><?php echo $asset->name; ?></option>
-                                                    <?php $no++; } ?>
-                                                </select>
+                                                        <?php $no++; } ?>
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-3">
-                                                <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" id="select_subsystem2" name="changed_subsystem">
-                                                    <option disabled selected>-- Pilih Asset Terlebih Dahulu --</option>
-                                                </select>
+                                                    <select onchange="this.form.submit()" class="form-control col-md-5 input-sm" id="select_subsystem2" name="changed_subsystem">
+                                                        <option disabled selected>-- Pilih Asset Terlebih Dahulu --</option>
+                                                    </select>
                                                 </div>
                                             </form>
                                         </div>
@@ -575,7 +603,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div> <!-- Row 2-->
                     <?php } ?>
-                    
+
                 </div><!-- Container -->
             </div><!-- Content -->
 
@@ -643,7 +671,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </script>
 <script>
-
     $(document).ready(function() {
 
         $('#select_asset').on('change', function() {
@@ -651,15 +678,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             let assetId = $(this).val();
             $.ajax({
                 type: "GET",
-                url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
+                url: baseUrl + 'index.php/cour/set_form_subsystem/' + assetId,
                 dataType: 'json',
                 success: function(response) {
                     $('#subsystem').empty();
                     var total_subsys = response.length;
                     for (var i = 0; i < total_subsys; i++) {
                         $('#subsystem').append(
-                            '<option value="'+response[i].id+'">'+
-                                response[i].name+
+                            '<option value="' + response[i].id + '">' +
+                            response[i].name +
                             '</option>'
                         );
                     }
@@ -673,20 +700,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             let assetId = $(this).val();
             $.ajax({
                 type: "GET",
-                url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
+                url: baseUrl + 'index.php/cour/set_form_subsystem/' + assetId,
                 dataType: 'json',
                 success: function(response) {
                     console.log(response[0].id);
                     $('#select_subsystem2').empty();
                     var total_subsys = response.length;
                     $('#select_subsystem2').append(
-                            '<option disabled selected>'+
-                            '-- Pilih Subsystem --</option>'
-                        );
+                        '<option disabled selected>' +
+                        '-- Pilih Subsystem --</option>'
+                    );
                     for (var i = 0; i < total_subsys; i++) {
                         $('#select_subsystem2').append(
-                            '<option value="'+response[i].id+'">'+
-                                response[i].name+
+                            '<option value="' + response[i].id + '">' +
+                            response[i].name +
                             '</option>'
                         );
                     }
@@ -720,7 +747,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function closeForm3() {
         document.getElementById("myForm3").style.display = "none";
     }
-    
+
     function openForm4() {
         document.getElementById("myForm4").style.display = "block";
     }
