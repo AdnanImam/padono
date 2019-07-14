@@ -168,17 +168,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <!-- <p class="text-center">Please choose asset first to see Reliability Data</p> -->
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
-                                            <th style="color:#fff; background-color: coral;"><b>Asset<b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>No.<b></th>
                                             <th style="color:#fff; background-color: coral;"><b><i>t(hours)</i></b></th>
-                                            <?php foreach($subsystem_of_first_asset as $as) { ?>
-                                            <th style="color:#fff; background-color: coral;"><b><?php echo 'Subsistem( '.$as->name.' )'; ?></b></th>
+                                            <?php foreach ($reliabilities as $key => $reliability)  { ?>
+                                            <th style="color:#fff; background-color: coral;"><b><?php echo $reliability['name']; ?></b></th>
                                             <?php } ?>
                                             <th style="color:#fff; background-color: coral;"><b>Reliability System</b></th>
                                         </thead>
                                         <tbody>
+                                            <?php for ($i=0; $i < $max_size; $i++) { ?>
                                             <tr>
-                                                
+                                                <td>
+                                                <?php echo($i+1) ?>
+                                                </td>
+                                                <td>
+                                                <?php echo($reliabilities['0']['reliability'][$i]['t_hour']) ?>
+                                                </td>
+                                                <?php 
+                                                    $value = 1;
+                                                    foreach ($reliabilities as $key => $reliability) { 
+                                                ?>
+                                                <td>
+                                                <?php 
+                                                    $value *= (1-$reliability['reliability'][$i]['reliability']);
+                                                    echo($reliability['reliability'][$i]['reliability']);
+                                                ?>
+                                                </td>
+                                                <?php } ?>
+                                                <td>
+                                                <?php echo(1-$value) ?>
+                                                </td>
                                             </tr>
+                                            <?php } ?>
                                             
                                         </tbody>
                                     </table>
