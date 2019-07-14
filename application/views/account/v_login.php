@@ -19,7 +19,7 @@
 
  <body class="text-center">
      <div class="form-signin">
-         <img class="mb-4" src="../../assets/image/icon.jpg" alt="" width="72" height="72">
+         <img class="mb-4" src="<?php echo base_url()?>assets/img/couramlogo.png" alt="" width="172" height="172">
          <h1 class="h3 mb-3 font-weight-normal">LOGIN COURAM</h1>
          <?php
             if($this->session->flashdata('sukses')) {

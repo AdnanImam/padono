@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>
                             <i class="pe-7s-rocket"></i>
 
-                            <?php echo anchor('login/logout','KELUAR'); ?>
+                            <?php echo anchor('login/logout','LOG OUT'); ?>
                         </p>
                         </a>
                     </li>
