@@ -300,10 +300,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $ttr_scale = $CI->kalkulasi->calculateEta($ttr_array);
 
                                             $mttr = ""; 
+                                            $distribusi_mttr = "";
                                             $dmax_minimum = min($dmax_ttr_normal, $dmax_ttr_exponen, $dmax_ttr_weibull); 
                                             if($dmax_minimum == $dmax_ttr_weibull) {
+                                                $distribusi_mttr = "Weibull";
                                                 $mttr = ($mean_ttr*$CI->kalkulasi->gamma(1+(1/$ttr_shape)));
                                             } else {
+                                                if($dmax_minimum == $dmax_ttr_exponen){
+                                                    $distribusi_mttr = "Exponen";
+                                                } else {
+                                                    $distribusi_mttr = "Normal";
+                                                }
                                                 $mttr = $mean_ttr;
                                             }
                                             $data_mttr = array('mttr' => $mttr);
@@ -352,7 +359,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $ttr_scale; ?></td>
                                             </tr>
                                             <tr colspan="9">
-                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTR : </b>'.$mttr; ?></td>
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTR : </b>'.$mttr.' ('.$distribusi_mttr.')'; ?></td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -395,10 +402,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $ttf_scale = $CI->kalkulasi->calculateEta($ttf_array);
 
                                             $mttf = ""; 
+                                            $distribusi_mttf = "";
                                             $dmax_minimum = min($dmax_ttf_normal, $dmax_ttf_exponen, $dmax_ttf_weibull); 
                                             if($dmax_minimum == $dmax_ttf_weibull) {
+                                                $distribusi_mttf = "Weibull";
                                                 $mttf = ($ttf_scale*$CI->kalkulasi->gamma(1+(1/$ttf_shape)));
                                             } else {
+                                                if($dmax_minimum == $dmax_ttf_exponen){
+                                                    $distribusi_mttf = "Exponen";
+                                                } else {
+                                                    $distribusi_mttf = "Normal";
+                                                }
                                                 $mttf = $mean_ttf;
                                             }
                                             $data_mttf = array('mttf' => $mttf);
@@ -447,7 +461,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $ttf_scale; ?></td>
                                             </tr>
                                             <tr colspan="9">
-                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTF : </b>'.$mttf; ?></td>
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MTTF : </b>'.$mttf.' ('.$distribusi_mttf.')'; ?></td>
                                             </tr>
                                         </thead>
                                     </table>
@@ -482,10 +496,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $dt_scale = $CI->kalkulasi->calculateEta($dt_array);
 
                                             $mdt = ""; 
+                                            $distribusi_mdt = "";
                                             $dmax_minimum = min($dmax_dt_normal, $dmax_dt_exponen, $dmax_dt_weibull); 
                                             if($dmax_minimum == $dmax_dt_weibull) {
+                                                $distribusi_mdt = "Weibull";
                                                 $mdt = ($mean_dt*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
                                             } else {
+                                                if($dmax_minimum == $dmax_dt_exponen){
+                                                    $distribusi_mdt = "Exponen";
+                                                } else {
+                                                    $distribusi_mdt = "Normal";
+                                                }
                                                 $mdt = $mean_dt;
                                             }
                                             $data_mdt = array('mdt' => $mdt);
@@ -534,7 +555,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $dt_scale; ?></td>
                                             </tr>
                                             <tr colspan="9">
-                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MDT : </b>'.$mdt; ?></td>
+                                                <td colspan="9" style="font-size: 16px; padding: 20px;"><?php echo '<b>MDT : </b>'.$mdt.' ('.$distribusi_mdt.')'; ?></td>
                                             </tr>
                                         </thead>
                                     </table>
