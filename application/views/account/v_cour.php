@@ -155,7 +155,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                  <div class="input-group-addon">Rp</div>
                                                  <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Price In Rupiah">
                                             </div>
-
                                             <label for="exampleInputPassword1"><b> Total Equipment Cost</b></label>
                                             <input type="number" name="material_price" class="form-control" id="#" placeholder="Price In Rupiah">
                                         </div>
@@ -172,7 +171,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Number of Technicians per Maintenance</b></label>
                                             <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Number of Person">
-
                                             <label for="exampleInputPassword1"><b>Salary for Work Technicians per Month</b></label>
                                             <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Price In Rupiah">
                                         </div>

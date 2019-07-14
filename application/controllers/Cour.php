@@ -85,19 +85,6 @@
 
         $data['subsystems_from_asset'] = $this->subsys->getAllBy(array('asset_id' => $data['asset_id']));
 
-        
-
-        //$data['subsystems'] = $subsys;
-
-     	//$total_gaji = $data['techniciant_per_maintenance'] * $data['technician_salary'];
-
-     	//$gaji_teknisi_per_jam = $total_gaji / $jumlah_jam_kerja_perbulan;
-     	//$data['gaji_teknisi_per_jam'] = $jumlah_jam_kerja_perbulan;
-
-     	
-
-     	// $failure_rate =  1 / $mttf; 
-
      	$this->load->view('account/v_cour', $data);
      }
 

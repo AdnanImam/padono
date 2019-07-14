@@ -27,4 +27,11 @@ class Asset_model extends CI_Model {
         	return $query->num_rows();
         }
 
+        public function getFirstAsset()
+        {
+                $this->db->order_by('id', 'ASC');
+                $this->db->limit(1);
+                return $this->db->get('assets')->row();
+        }
+
 }
