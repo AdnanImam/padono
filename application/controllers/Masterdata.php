@@ -39,7 +39,7 @@
             $total_data = count($import);
             for ($i=0; $i < $total_data; $i++) {
                 $ttr =  date_diff(date_create($import[$i]['repair_finish']), date_create($import[$i]['start_repair']));
-                $import[$i]['ttr'] = ($ttr->h*60+$ttr->i)/60;
+                $import[$i]['ttr'] = ((($ttr->days*24) + $ttr->h)*60+$ttr->i)/60;
                 if($i == 0)
                     $import[$i]['ttf'] = 0;
                 else {
@@ -47,7 +47,7 @@
                     $import[$i]['ttf'] = ((($ttf->days*24) + $ttf->h)*60+$ttf->i)/60;
                 }
                 $downtime = date_diff(date_create($import[$i]['repair_finish']), date_create($import[$i]['failure_start']));
-                $import[$i]['dt'] = (($downtime->h*60)+$downtime->i)/60;
+                $import[$i]['dt'] = (((($downtime->days*24) + $downtime->h)*60)+$downtime->i)/60;
             	$import[$i]['subsystem_id'] = $input_data['subsystem'];
             	$import[$i]['user_id'] = $_SESSION['id'];
             }
