@@ -21,8 +21,10 @@
      	 for ($i=0; $i < count($data['subsystem_of_first_asset']); $i++) { 
 			$ttf_data = array();
 			$master_data = $this->master->getAllBy(array('subsystem_id' => $data['subsystem_of_first_asset'][$i]->id));
-			foreach ($master_data as $key => $value) {
-				array_push($ttf_data, $value->ttf);
+			if($master_data!=null){
+				foreach ($master_data as $key => $value) {
+					array_push($ttf_data, $value->ttf);
+				}
 			}
      	 	array_push($master_data_of_subsystem, array('name'=>$data['subsystem_of_first_asset'][$i]->name, 'ttf'=>$ttf_data));
 		  }
@@ -30,17 +32,19 @@
 		  $data['max_size'] = 0;
 		  $data_reliability = array();
 		  foreach ($master_data_of_subsystem as $key => $value) {
-			array_splice($value['ttf'], 0, 1);
-			$reliability = $this->kalkulasi->calculateReliability($data['first_asset']->operation_hours_day, $value['ttf']);
-			array_push($data_reliability, array('name'=>$value['name'], 'reliability'=>$reliability));
-			if($data['max_size']<sizeof($reliability)){
-				$data['max_size'] = sizeof($reliability);
-			}
+				if (sizeof($value['ttf'])!=0) {
+					array_splice($value['ttf'], 0, 1);
+					$reliability = $this->kalkulasi->calculateReliability($data['first_asset']->operation_hours_day, $value['ttf']);
+					array_push($data_reliability, array('name'=>$value['name'], 'reliability'=>$reliability));
+					if($data['max_size']<sizeof($reliability)){
+						$data['max_size'] = sizeof($reliability);
+					}
+				}
 		  }
 
 
      	//  echo "<pre>";
-     	//  print_r($data_reliability);
+     	//  print_r($master_data_of_subsystem);
      	//  echo "</pre>";
 
      	 $data['reliabilities'] = $data_reliability;
