@@ -191,12 +191,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td>
                                                 <?php 
                                                     $value *= (1-($reliability['reliability'][$i]['reliability']/100));
-                                                    echo($reliability['reliability'][$i]['reliability']);
+                                                    echo($reliability['reliability'][$i]['reliability'].'%');
                                                 ?>
                                                 </td>
                                                 <?php } ?>
                                                 <td>
-                                                <?php echo((1-$value)*100) ?>
+                                                <?php echo(((1-$value)*100).'%') ?>
                                                 </td>
                                             </tr>
                                             <?php } ?>
