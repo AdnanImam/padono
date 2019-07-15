@@ -154,8 +154,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <p class="category">Here is a subtitle for this table</p>  
                                         </div>
                                         <div class="col-md-6">
-                                            <form style="width: 50%;" class="pull-right">
-                                                <select class="form-control">
+                                            <form method="POST" action="<?php echo base_url(); ?>index.php/ram/changeAsset" style="width: 50%;" class="pull-right">
+                                                <select onchange="this.form.submit()" class="form-control"  name="changed_asset">
+                                                    <option value="0"><?php echo '-- Pilih Asset Terlebih Dahulu --'; ?></option>
                                                     <?php  foreach($assets as $asset) { ?>
                                                     <option value="<?php echo $asset->id; ?>"><?php echo 'Plant - '.$asset->plant_id.' : '.$asset->name; ?></option>
                                                     <?php } ?>
