@@ -122,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div align="center" class="col-md-12">
                             <div class="card">
                                 <div class="row">
@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="row">
                         <div class="col-md-12">
@@ -218,110 +218,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
-                                            <th style="color:#fff; background-color: Olive;"><b>No</b></th>
-                                            <th style="color:#fff; background-color: Olive;"><b><i>T (Hours)</i></b></th>
-                                            <th style="color:#fff; background-color: Olive;"><b>A Axis</b></th>
-                                            <th style="color:#fff; background-color: Olive;"><b>B Axis</b></th>
-                                            <th style="color:#fff; background-color: Olive;"><b>X Axis</b></th>
-                                            <th style="color:#fff; background-color: Olive;"><b>Y Axis</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>No.<b></th>
+                                            <th style="color:#fff; background-color: coral;"><b><i>t(hours)</i></b></th>
+                                            <?php foreach ($maintainabilities as $key => $maintainability)  { ?>
+                                            <th style="color:#fff; background-color: coral;"><b><?php echo $maintainability['name']; ?></b></th>
+                                            <?php } ?>
                                         </thead>
                                         <tbody>
+                                            <?php for ($i=0; $i < $max_size_maintainability; $i++) { ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>40%</td>
-                                                <td>32%</td>
-                                                <td>20%</td>
-                                                <td>19%</td>
-                                                <td>11%</td>
+                                                <td>
+                                                <?php echo($i+1) ?>
+                                                </td>
+                                                <td>
+                                                <?php echo($maintainabilities['0']['maintainability'][$i]['t_hour']) ?>
+                                                </td>
+                                                <?php 
+                                                    $value = 1;
+                                                    foreach ($maintainabilities as $key => $reliability) { 
+                                                ?>
+                                                <td>
+                                                <?php 
+                                                    if($i<sizeof($reliability['maintainability']))
+                                                        echo($reliability['maintainability'][$i]['maintainability'].'%');
+                                                ?>
+                                                </td>
+                                                <?php } ?>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>64%</td>
-                                                <td>54%</td>
-                                                <td>36%</td>
-                                                <td>34%</td>
-                                                <td>21%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>79%</td>
-                                                <td>69%</td>
-                                                <td>49%</td>
-                                                <td>47%</td>
-                                                <td>30%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>87%</td>
-                                                <td>79%</td>
-                                                <td>59%</td>
-                                                <td>57%</td>
-                                                <td>38%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>92%</td>
-                                                <td>86%</td>
-                                                <td>68%</td>
-                                                <td>65%</td>
-                                                <td>45%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>95%</td>
-                                                <td>90%</td>
-                                                <td>74%</td>
-                                                <td>72%</td>
-                                                <td>51%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>97%</td>
-                                                <td>93%</td>
-                                                <td>79%</td>
-                                                <td>77%</td>
-                                                <td>56%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>98%</td>
-                                                <td>96%</td>
-                                                <td>83%</td>
-                                                <td>81%</td>
-                                                <td>61%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>99%</td>
-                                                <td>97%</td>
-                                                <td>87%</td>
-                                                <td>85%</td>
-                                                <td>66%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>99%</td>
-                                                <td>98%</td>
-                                                <td>89%</td>
-                                                <td>88%</td>
-                                                <td>69%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>100%</td>
-                                                <td>99%</td>
-                                                <td>92%</td>
-                                                <td>90%</td>
-                                                <td>73%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>100%</td>
-                                                <td>99%</td>
-                                                <td>93%</td>
-                                                <td>92%</td>
-                                                <td>76%</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
 
@@ -346,43 +270,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th style="color:#fff; background-color: DodgerBlue;"><b>MTTF</b></th>
                                             <th style="color:#fff; background-color: DodgerBlue;"><b>MTTR</b></th>
                                             <th style="color:#fff; background-color: DodgerBlue;"><i><b>Inherent Availability</b></i></th>
+                                            <th style="color:#fff; background-color: DodgerBlue;"><i><b>Performance Indicator</b></i></th>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($inherent_availabilities as $key => $inherent_availability) { ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>A Axis</td>
-                                                <td>1162,97</td>
-                                                <td>1,94</td>
-                                                <td>99,833%</td>
+                                                <td><?php echo($key + 1) ?></td>
+                                                <td><?php echo($inherent_availability['name']) ?></td>
+                                                <td><?php echo($inherent_availability['mttr']) ?></td>
+                                                <td><?php echo($inherent_availability['mttf']) ?></td>
+                                                <td><?php echo(((round($inherent_availability['mttf']/($inherent_availability['mttf']+$inherent_availability['mttr']), 4))*100).'%') ?></td>
+                                                <td>
+                                                    <?php 
+                                                    if(((round($inherent_availability['mttf']/($inherent_availability['mttf']+$inherent_availability['mttr']), 4))*100) < 95)
+                                                        echo('Not Achieved'); 
+                                                    else
+                                                        echo('Achieved');
+                                                    ?>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>B Axis</td>
-                                                <td>1409,73</td>
-                                                <td>2,56</td>
-                                                <td>99,818%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>X Axis</td>
-                                                <td>1792,22</td>
-                                                <td>4,44</td>
-                                                <td>99,753</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Y Axis</td>
-                                                <td>5148,07</td>
-                                                <td>4,78</td>
-                                                <td>99,914%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Z Axis</td>
-                                                <td>9781,66</td>
-                                                <td>8,45</td>
-                                                <td>99,914%</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
 
@@ -406,43 +313,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th style="color:#fff; background-color: FireBrick;"><b>Opeational Time</b></th>
                                             <th style="color:#fff; background-color: FireBrick;"><b>DT </b></th>
                                             <th style="color:#fff; background-color: FireBrick;"><i><b>Operational Availability</b></i></th>
+                                            <th style="color:#fff; background-color: FireBrick;"><i><b>Performance Indicator</b></i></th>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($operational_availabilities as $key => $operational_availability) { ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>A Axis</td>
-                                                <td>34896</td>
-                                                <td>54,5000</td>
-                                                <td>99,84%</td>
+                                                <td><?php echo($key + 1) ?></td>
+                                                <td><?php echo($operational_availability['name']) ?></td>
+                                                <td><?php echo($operational_availability['oprational_time']) ?></td>
+                                                <td><?php echo($operational_availability['mdt']) ?></td>
+                                                <td><?php echo(((round(($operational_availability['oprational_time']-$operational_availability['mdt'])/$operational_availability['oprational_time'], 4))*100).'%') ?></td>
+                                                <td>
+                                                    <?php 
+                                                    if(((round(($operational_availability['oprational_time']-$operational_availability['mdt'])/$operational_availability['oprational_time'], 4))*100) < 95)
+                                                        echo('Not Achieved'); 
+                                                    else
+                                                        echo('Achieved');
+                                                    ?>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>B Axis</td>
-                                                <td>34896</td>
-                                                <td>104,6700</td>
-                                                <td>99,70%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>X Axis</td>
-                                                <td>34896</td>
-                                                <td>199,2500</td>
-                                                <td>99,43%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Y Axis</td>
-                                                <td>34896</td>
-                                                <td>81,2500</td>
-                                                <td>99,77%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Z Axis</td>
-                                                <td>34896</td>
-                                                <td>128,2500</td>
-                                                <td>99.63%</td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
 

@@ -302,10 +302,26 @@ class Kalkulasi
         $beta = $this->calclateBeta($ttf);
         $tHour = $oprationalHourPerDay;
 
-        while (round($reliability, 2)!=0.000000000000000 && $row<=50) {
+        while (round($reliability, 2)!=0.000000000000000 && $row<50) {
             $reliability = exp(-($tHour/$eta)*exp($beta));
             array_push($result, array('t_hour' => $tHour, 'reliability' => round($reliability, 2)*100));
             $tHour += $oprationalHourPerDay;
+            $row+=1;
+        }
+        return $result;
+    }
+
+    function calculateMaintainability($mttr)
+    {
+        $row = 0;
+        $result = array();
+        $maintainability = 0;
+        $tHour = 1;
+
+        while (round($maintainability, 2)!=1 && $row<50) {
+            $maintainability = 1-exp(-($tHour)/$mttr);
+            array_push($result, array('t_hour' => $tHour, 'maintainability' => round($maintainability, 2)*100));
+            $tHour += 1;
             $row+=1;
         }
         return $result;
