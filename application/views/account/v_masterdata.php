@@ -311,7 +311,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $dmax_minimum = min($dmax_ttr_normal, $dmax_ttr_exponen, $dmax_ttr_weibull); 
                                             if($dmax_minimum == $dmax_ttr_weibull) {
                                                 $distribusi_mttr = "Weibull";
-                                                $mttr = ($mean_ttr*$CI->kalkulasi->gamma(1+(1/$ttr_shape)));
+                                                $mttr = ($ttr_scale*$CI->kalkulasi->gamma(1+(1/$ttr_shape)));
                                             } else {
                                                 if($dmax_minimum == $dmax_ttr_exponen){
                                                     $distribusi_mttr = "Exponen";
@@ -507,7 +507,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $dmax_minimum = min($dmax_dt_normal, $dmax_dt_exponen, $dmax_dt_weibull); 
                                             if($dmax_minimum == $dmax_dt_weibull) {
                                                 $distribusi_mdt = "Weibull";
-                                                $mdt = ($mean_dt*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
+                                                $mdt = ($ttr_scale*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
                                             } else {
                                                 if($dmax_minimum == $dmax_dt_exponen){
                                                     $distribusi_mdt = "Exponen";
