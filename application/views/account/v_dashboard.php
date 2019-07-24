@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px" >
+                    <img class="avatar border-gray" src="<?php echo base_url()?>uploads/users/photo/<?php echo $user->photo; ?>" alt="Avatar"  style="width:90px; height:90px; margin-top:5px;  border-radius: 50%;" />
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
@@ -126,41 +126,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="header">
-                                    <h2 class="title"><?php echo $total_plant; ?></h2>
-                                    <p class="category">PLAN</p>
-                                </div>
-                                <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Plantform" class="btn btn-primary btn-fill">Create Plan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-
-                                <div class="header">
-                                    <h2 class="title"><?php echo $total_asset; ?></h2>
-                                    <p class="category">ASSET</p>
-                                </div>
-                                <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Assetform" class="btn btn-primary btn-fill">Create Asset</a>
+                        <div class="col-md-4 ">
+                            <div class="card" style="background-color: #F29C1E;">
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                        <div class="header">
+                                            <h1 class="title" style="color:white"><?php echo $total_plant; ?></h1>
+                                            <p class="category" style="color:white">PLAN</p>
+                                        </div>
+                                        <div class="content">
+                                            <a href="<?php echo base_url()?>index.php/Plantform" class="btn btn-primary btn-fill">Create Plan</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/dashboardasset.png" style="width:100%; height: 100%;" alt="" title="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
 
-                                <div class="header">
-                                    <h2 class="title"><?php echo $total_subsystem; ?></h2>
-                                    <p class="category">SUBSYSTEM</p>
-                                </div>
-                                <div class="content">
-                                    <a href="<?php echo base_url()?>index.php/Subsystemform" class="btn btn-primary btn-fill">Create Subsystem</a>
+                        <div class="col-md-4 ">
+                            <div class="card" style="background-color: #00A459;">
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                        <div class="header">
+                                            <h1 class="title" style="color:white"><?php echo $total_asset; ?></h1>
+                                            <p class="category" style="color:white">ASSETS</p>
+                                        </div>
+                                        <div class="content">
+                                            <a href="<?php echo base_url()?>index.php/Assetform" class="btn btn-primary btn-fill">Create Asset</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/dashboardplan.png" style="width:100%; height: 100%;" alt="" title="">
+                                    </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <div class="card" style="background-color: #DD4C38;">
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                        <div class="header">
+                                            <h1 class="title" style="color:white"><?php echo $total_subsystem; ?></h1>
+                                            <p class="category" style="color:white">SUBSYSTEM</p>
+                                        </div>
+                                        <div class="content">
+                                            <a href="<?php echo base_url()?>index.php/Subsystemform" class="btn btn-primary btn-fill">Create Subsystem</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/dashboardsub.png" style="width:100%; height: 100%;" alt="" title="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

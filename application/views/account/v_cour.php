@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
+                    <img class="avatar border-gray" src="<?php echo base_url()?>uploads/users/photo/<?php echo $user->photo; ?>" alt="Avatar" style="width:90px; height:90px; margin-top:5px;  border-radius: 50%;" />
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
@@ -139,47 +139,79 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <form method="POST" action="<?php echo base_url(); ?>index.php/cour/analyze">
                                         <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>">
+
                                         <div class="select-box">
                                             <label for="select-box1" class="label select-box1"><span class="label-desc" style="color:#fff;">Choose Assets</span> </label>
                                             <select id="select_asset" class="select" name="asset_name">
                                                 <option value="" disabled selected>-- Pilih Asset --</option>
                                                 <?php foreach($assets as $data) { ?>
-                                                    <option value="<?php echo $data->id; ?>"><?php echo 'Plant '.$data->plant_id.' - '.$data->name; ?></option>
+                                                <option value="<?php echo $data->id; ?>"><?php echo 'Plant '.$data->plant_id.' - '.$data->name; ?></option>
                                                 <?php } ?>
                                             </select>
                                             <input type="hidden" name="asset_id" id="asset_id" value="">
                                         </div>
+
                                         <div class="form-group">
                                             <label for="exampleInputPassword1"><b>Amount of Material Maintenance</b></label>
                                             <div class="input-group">
-                                                 <div class="input-group-addon">Rp</div>
-                                                 <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Price In Rupiah">
+                                                <div class="input-group-addon">Rp</div>
+                                                <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Price In Rupiah">
                                             </div>
                                             <label for="exampleInputPassword1"><b> Total Equipment Cost</b></label>
-                                            <input type="number" name="material_price" class="form-control" id="#" placeholder="Price In Rupiah">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">Rp</div>
+                                                <input type="number" name="material_price" class="form-control" id="#" placeholder="Price In Rupiah">
+                                            </div>
                                         </div>
+
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Effective Working Days per Month</b></label>
-                                            <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Number Of Days">
+                                            <div class="input-group">
+                                                <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Number Of Days">
+                                                <div class="input-group-addon">Days</div>
+                                            </div>
 
                                             <label for="exampleInputPassword1"><b>Job Sift Amount per Day</b></label>
-                                            <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Number Of Shift">
+                                            <div class="input-group">
+                                                <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Number Of Shift">
+                                                <div class="input-group-addon">Shift</div>
+                                            </div>
+
 
                                             <label for="exampleInputPassword1"><b>Working Hours per Sift</b></label>
-                                            <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Number Of Days">
+                                            <div class="input-group">
+                                                <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Number Of Days">
+                                                <div class="input-group-addon">Days</div>
+                                            </div>
                                         </div>
+
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Number of Technicians per Maintenance</b></label>
-                                            <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Number of Person">
+                                            <div class="input-group">
+                                                <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Number of Person">
+                                                <div class="input-group-addon">Person</div>
+                                            </div>
+
                                             <label for="exampleInputPassword1"><b>Salary for Work Technicians per Month</b></label>
-                                            <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Price In Rupiah">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">Rp</div>
+                                                <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Price In Rupiah">
+                                            </div>
+
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Hourly Engine Capacity</b></label>
-                                            <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Number of Pieces">
+                                            <div class="input-group">
+                                                <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Number of Pieces">
+                                                <div class="input-group-addon">Pieces</div>
+                                            </div>
 
                                             <label for="exampleInputPassword1"><b>Price of one-piece product</b></label>
-                                            <input type="number" name="product_price" class="form-control" id="#" placeholder="Price In Rupiah">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">Rp</div>
+                                                <input type="number" name="product_price" class="form-control" id="#" placeholder="Price In Rupiah">
+                                            </div>
+
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Number Of Failure</b></label>
@@ -234,7 +266,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -254,13 +286,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </thead>
                                         <tbody>
                                             <?php $no = 0; foreach($subsystems_from_asset as $sub) { ?>
-                                                <tr>
-                                                    <td><?php echo ($no+1); ?></td>
-                                                    <td><?php echo $sub->name; ?></td>
-                                                    <td><?php echo $sub->corrective_lost_time; ?></td>
-                                                    <td><?php echo $sub->downtime_lost_time; ?></td>
-                                                    <td><?php echo $sub->failure_rate; ?></td>
-                                                </tr>
+                                            <tr>
+                                                <td><?php echo ($no+1); ?></td>
+                                                <td><?php echo $sub->name; ?></td>
+                                                <td><?php echo $sub->corrective_lost_time; ?></td>
+                                                <td><?php echo $sub->downtime_lost_time; ?></td>
+                                                <td><?php echo $sub->failure_rate; ?></td>
+                                            </tr>
                                             <?php $no++; } ?>
                                         </tbody>
                                     </table>
@@ -289,14 +321,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </thead>
                                         <tbody>
                                             <?php $no = 0; foreach($subsystems_from_asset as $sub) { ?>
-                                                <tr>
-                                                    <td><?php echo ($no+1); ?></td>
-                                                    <td><?php echo $sub->name; ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->corrective_lpc); ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->corrective_ec); ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->corrective_lmc); ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->corrective_cour); ?></td>
-                                                </tr>
+                                            <tr>
+                                                <td><?php echo ($no+1); ?></td>
+                                                <td><?php echo $sub->name; ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->corrective_lpc); ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->corrective_ec); ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->corrective_lmc); ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->corrective_cour); ?></td>
+                                            </tr>
                                             <?php $no++; } ?>
                                         </tbody>
                                     </table>
@@ -324,14 +356,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </thead>
                                         <tbody>
                                             <?php $no = 0; foreach($subsystems_from_asset as $sub) { ?>
-                                                <tr>
-                                                    <td><?php echo ($no+1); ?></td>
-                                                    <td><?php echo $sub->name; ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->downtime_lpc); ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->downtime_ec); ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->downtime_lmc); ?></td>
-                                                    <td><?php echo 'Rp '.number_format($sub->downtime_cour); ?></td>
-                                                </tr>
+                                            <tr>
+                                                <td><?php echo ($no+1); ?></td>
+                                                <td><?php echo $sub->name; ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->downtime_lpc); ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->downtime_ec); ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->downtime_lmc); ?></td>
+                                                <td><?php echo 'Rp '.number_format($sub->downtime_cour); ?></td>
+                                            </tr>
                                             <?php $no++; } ?>
                                         </tbody>
                                     </table>
@@ -410,7 +442,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#asset_id').val(assetId);
             $.ajax({
                 type: "GET",
-                url: baseUrl+'index.php/cour/set_form_subsystem/'+assetId,
+                url: baseUrl + 'index.php/cour/set_form_subsystem/' + assetId,
                 dataType: 'json',
                 success: function(response) {
                     $('#num_of_failure_table').empty();
@@ -418,9 +450,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     for (var i = 0; i < total_asset; i++) {
                         $('#num_of_failure_table').append(
-                            '<tr>'+
-                                '<td><label for="exampleInputPassword1"><b>'+response[i].name+'</b></label></td>'+
-                                '<td><input name="subsys_num_of_failure[]" placeholder="Number of Failure.." type="number" class="form-control input-sm"><input type="hidden" name="subsys_id[]" value="'+response[i].id+'" /></td>'+
+                            '<tr>' +
+                            '<td><label for="exampleInputPassword1"><b>' + response[i].name + '</b></label></td>' +
+                            '<td><input name="subsys_num_of_failure[]" placeholder="Number of Failure.." type="number" class="form-control input-sm"><input type="hidden" name="subsys_id[]" value="' + response[i].id + '" /></td>' +
                             '</tr>'
                         );
                     }

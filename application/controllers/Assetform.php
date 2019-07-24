@@ -11,8 +11,9 @@
  
      //Load Halaman dashboard
      public function index() {
-     	$data['plants'] = $this->plant->getAllBy(array('user_id' => $_SESSION['id']));
-		 $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
+         $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
+         $data['plants'] = $this->plant->getAllBy(array('user_id' => $_SESSION['id']));
+         $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
 		 
 		if($data['plants'] == null)
 			$data['plants'] = array();

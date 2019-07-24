@@ -12,9 +12,12 @@
  
      //Load Halaman dashboard
      public function index() {
+        $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
      	$data['total_plant'] = $this->plant->getCountAllBy(array('user_id' => $_SESSION['id']));
      	$data['total_asset'] = $this->asset->getCountAllBy(array('user_id' => $_SESSION['id']));
         $data['total_subsystem'] = $this->subsys->getCountAllBy(array('user_id' => $_SESSION['id']));
         $this->load->view('account/v_dashboard', $data);
      }
+     
+     
  }
