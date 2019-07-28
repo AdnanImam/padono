@@ -53,11 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="sidebar-wrapper">
                 <div class="col-md-12" align="center">
-                    <img src="<?php echo base_url()?>assets/img/profile.png" alt="Avatar" style="width:90px; margin-top:5px">
+                     <img class="avatar border-gray" src="<?php echo base_url()?>uploads/users/photo/<?php echo $user->photo; ?>" alt="Avatar"  style="width:90px; height:90px; margin-top:5px;  border-radius: 50%;" />
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
-                        WELLCOME <?php echo ucfirst($this->session->userdata('username')); ?>!
+                        WELCOME <?php echo ucfirst($this->session->userdata('username')); ?>!
                     </a>
                 </div>
 

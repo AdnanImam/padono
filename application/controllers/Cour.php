@@ -11,6 +11,7 @@
  
      //Load Halaman dashboard
      public function index() {
+         $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
      	 $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
      	 //$data['subsystems'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
          $this->load->view('account/v_cour', $data);

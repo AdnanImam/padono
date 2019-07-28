@@ -16,7 +16,7 @@
                 </div>
                 <div class="logo">
                     <a href="#" class="simple-text">
-                        WELLCOME <?php echo ucfirst($this->session->userdata('username')); ?>!
+                        WELCOME <?php echo ucfirst($this->session->userdata('username')); ?>!
                     </a>
                 </div>
 
