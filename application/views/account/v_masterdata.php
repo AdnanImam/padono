@@ -405,7 +405,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $dmax_ttf_weibull = $CI->kalkulasi->calculateDMaxWeibull($ttf_array);
                                             $ttr_rate = $CI->kalkulasi->calculateLamda($ttf_array);
                                             $ttf_shape = $CI->kalkulasi->calclateBeta($ttf_array);
-                                            $ttr_intercept = $CI->kalkulasi->calculateAlpha($ttf_array);
+                                            $ttf_intercept = $CI->kalkulasi->calculateAlpha($ttf_array);
                                             $ttf_scale = $CI->kalkulasi->calculateEta($ttf_array);
 
                                             $mttf = ""; 
@@ -429,7 +429,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <thead>
                                             <tr>
                                                 <th>Sample Size</th>
-                                                <td><?php echo ($ttr_sample_size+1); ?></td>
+                                                <td><?php echo ($ttr_sample_size); ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Mean</th>
@@ -457,7 +457,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                             <tr>
                                                 <th>Intercept</th>
-                                                <td><?php echo $ttr_intercept; ?></td>
+                                                <td><?php echo $ttf_intercept; ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Shape</th>
@@ -507,7 +507,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             $dmax_minimum = min($dmax_dt_normal, $dmax_dt_exponen, $dmax_dt_weibull); 
                                             if($dmax_minimum == $dmax_dt_weibull) {
                                                 $distribusi_mdt = "Weibull";
-                                                $mdt = ($ttr_scale*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
+                                                $mdt = ($dt_scale*$CI->kalkulasi->gamma(1+(1/$dt_shape)));
                                             } else {
                                                 if($dmax_minimum == $dmax_dt_exponen){
                                                     $distribusi_mdt = "Exponen";

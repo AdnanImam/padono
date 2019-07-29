@@ -33,6 +33,7 @@
         }
         else {
             $data = array('upload_data' => $upload);
+            $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
             $input_data = $this->input->post();
             $filepath = $location_path.$data['upload_data']['file_name'];
             $this->load->library('libexcel');
@@ -75,6 +76,7 @@
 
      public function changeSubsystem()
      {
+         $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
          $subsystem_id = $this->input->post('changed_subsystem');
          $asset_id = $this->input->post('select_asset');
          $data['subsystems'] = $this->subsys->getAllBy(array('user_id' => $_SESSION['id']));
