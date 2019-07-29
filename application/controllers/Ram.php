@@ -14,7 +14,8 @@
      public function index() {
          $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
      	 $data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
-     	 $data['first_asset'] = $this->asset->getFirstAsset();
+		  $data['first_asset'] = $this->asset->getFirstAsset();
+		if($data['first_asset']!=null){
      	 $data['subsystem_of_first_asset'] = $this->subsys->getAllBy(array('asset_id' => $data['first_asset']->id));
 
      	 $this->load->library('kalkulasi');
@@ -63,12 +64,21 @@
      	 $data['maintainabilities'] = $data_maintainability;
      	 $data['inherent_availabilities'] = $data_inherent_availability;
      	 $data['operational_availabilities'] = $data_operational_availability;
-
+		} else {
+			$data['max_size'] = 0;
+			$data['max_size_maintainability'] = 0;
+			$data['reliabilities'] = [];
+			$data['maintainabilities'] = [];
+			$data['inherent_availabilities'] = [];
+			$data['operational_availabilities'] = [];
+		}
          $this->load->view('account/v_ram', $data);
 	 }
 	 
 	 public function changeAsset()
 	 {
+
+		$data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
 		$subsystem_id = $this->input->post('changed_asset');
 		$data['assets'] = $this->asset->getAllBy(array('user_id' => $_SESSION['id']));
 		$data['first_asset'] = $this->asset->getAllBy(array('id'=>$subsystem_id))[0];
