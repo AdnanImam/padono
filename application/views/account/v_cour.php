@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="select-box">
                                             <label for="select-box1" class="label select-box1"><span class="label-desc" style="color:#fff;">Choose Assets</span> </label>
-                                            <select id="select_asset" class="select" name="asset_name">
+                                            <select id="select_asset" class="select" name="asset_name" required>
                                                 <option value="" disabled selected>-- Pilih Asset --</option>
                                                 <?php foreach($assets as $data) { ?>
                                                 <option value="<?php echo $data->id; ?>"><?php echo 'Plant '.$data->plant_id.' - '.$data->name; ?></option>
@@ -155,32 +155,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <label for="exampleInputPassword1"><b>Amount of Material Maintenance</b></label>
                                             <div class="input-group">
                                                 <div class="input-group-addon">Rp</div>
-                                                <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Price In Rupiah">
+                                                <input type="number" name="price_per_material" class="form-control" id="#" placeholder="Price In Rupiah" required>
                                             </div>
                                             <label for="exampleInputPassword1"><b> Total Equipment Cost</b></label>
                                             <div class="input-group">
                                                 <div class="input-group-addon">Rp</div>
-                                                <input type="number" name="material_price" class="form-control" id="#" placeholder="Price In Rupiah">
+                                                <input type="number" name="material_price" class="form-control" id="#" placeholder="Price In Rupiah" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Effective Working Days per Month</b></label>
                                             <div class="input-group">
-                                                <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Number Of Days">
+                                                <input type="number" name="workday_per_month" class="form-control" id="#" placeholder="Number Of Days" required>
                                                 <div class="input-group-addon">Days</div>
                                             </div>
 
                                             <label for="exampleInputPassword1"><b>Job Sift Amount per Day</b></label>
                                             <div class="input-group">
-                                                <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Number Of Shift">
+                                                <input type="number" name="shift_per_day" class="form-control" id="#" placeholder="Number Of Shift" required>
                                                 <div class="input-group-addon">Shift</div>
                                             </div>
 
 
                                             <label for="exampleInputPassword1"><b>Working Hours per Sift</b></label>
                                             <div class="input-group">
-                                                <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Number Of Days">
+                                                <input type="number" name="workhour_per_shift" class="form-control" id="#" placeholder="Number Of Days" required>
                                                 <div class="input-group-addon">Days</div>
                                             </div>
                                         </div>
@@ -188,28 +188,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Number of Technicians per Maintenance</b></label>
                                             <div class="input-group">
-                                                <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Number of Person">
+                                                <input type="number" name="techniciant_per_maintenance" class="form-control" id="#" placeholder="Number of Person" required>
                                                 <div class="input-group-addon">Person</div>
                                             </div>
 
                                             <label for="exampleInputPassword1"><b>Salary for Work Technicians per Month</b></label>
                                             <div class="input-group">
                                                 <div class="input-group-addon">Rp</div>
-                                                <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Price In Rupiah">
+                                                <input type="number" name="technician_salary" class="form-control" id="#" placeholder="Price In Rupiah" required>
                                             </div>
 
                                         </div>
                                         <div class="form-group" style="margin-top:40px;">
                                             <label for="exampleInputPassword1"><b>Hourly Engine Capacity</b></label>
                                             <div class="input-group">
-                                                <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Number of Pieces">
+                                                <input type="number" name="machine_capacity_per_hour" class="form-control" id="#" placeholder="Number of Pieces" required>
                                                 <div class="input-group-addon">Pieces</div>
                                             </div>
 
                                             <label for="exampleInputPassword1"><b>Price of one-piece product</b></label>
                                             <div class="input-group">
                                                 <div class="input-group-addon">Rp</div>
-                                                <input type="number" name="product_price" class="form-control" id="#" placeholder="Price In Rupiah">
+                                                <input type="number" name="product_price" class="form-control" id="#" placeholder="Price In Rupiah" required>
                                             </div>
 
                                         </div>
@@ -452,7 +452,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('#num_of_failure_table').append(
                             '<tr>' +
                             '<td><label for="exampleInputPassword1"><b>' + response[i].name + '</b></label></td>' +
-                            '<td><input name="subsys_num_of_failure[]" placeholder="Number of Failure.." type="number" class="form-control input-sm"><input type="hidden" name="subsys_id[]" value="' + response[i].id + '" /></td>' +
+                            '<td><input name="subsys_num_of_failure[]" placeholder="Number of Failure.." type="number" class="form-control input-sm" required><input type="hidden" name="subsys_id[]" value="' + response[i].id + '" /></td>' +
                             '</tr>'
                         );
                     }

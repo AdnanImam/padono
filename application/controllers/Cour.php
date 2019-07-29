@@ -19,7 +19,8 @@
 
      public function analyze()
      {
-     	$data = $this->input->post();
+         $data = $this->input->post();
+         $data['user'] = $this->m_account->getAllBy(array('id_user' => $_SESSION['id']));
      	$total_biaya_peralatan = $data['price_per_material'] + $data['material_price'];
      	$data['total_biaya_peralatan'] = $total_biaya_peralatan;
      	

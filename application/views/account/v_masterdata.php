@@ -429,7 +429,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <thead>
                                             <tr>
                                                 <th>Sample Size</th>
-                                                <td><?php echo ($ttr_sample_size); ?></td>
+                                                <td><?php echo ($ttr_sample_size+1); ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Mean</th>
