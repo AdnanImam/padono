@@ -175,6 +175,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th style="color:#fff; background-color: coral;"><b><?php echo $reliability['name']; ?></b></th>
                                             <?php } ?>
                                             <th style="color:#fff; background-color: coral;"><b>Reliability System</b></th>
+                                            <th style="color:#fff; background-color: coral;"><b>Status</b></th>
                                         </thead>
                                         <tbody>
                                             <?php for ($i=0; $i < $max_size; $i++) { ?>
@@ -198,6 +199,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php } ?>
                                                 <td>
                                                 <?php echo(((1-$value)*100).'%') ?>
+                                                </td>
+                                                <td>
+                                                <?php 
+                                                    if(((1-$value)*100)<=50){
+                                                        echo("Need to change");
+                                                    } else if (((1-$value)*100)<=80){
+                                                        echo("Need to repair");
+                                                    } else {
+                                                        echo("Still good condition");
+                                                    }
+                                                ?>
                                                 </td>
                                             </tr>
                                             <?php } ?>
@@ -223,6 +235,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th style="color:#fff; background-color: coral;"><b><i>t(hours)</i></b></th>
                                             <?php foreach ($maintainabilities as $key => $maintainability)  { ?>
                                             <th style="color:#fff; background-color: coral;"><b><?php echo $maintainability['name']; ?></b></th>
+                                            <th style="color:#fff; background-color: coral;"><b><?php echo 'Status '.$maintainability['name']; ?></b></th>
                                             <?php } ?>
                                         </thead>
                                         <tbody>
@@ -242,6 +255,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php 
                                                     if($i<sizeof($reliability['maintainability']))
                                                         echo($reliability['maintainability'][$i]['maintainability'].'%');
+                                                ?>
+                                                </td>
+                                                <td>
+                                                <?php 
+                                                    if($i<sizeof($reliability['maintainability'])){
+                                                        if($reliability['maintainability'][$i]['maintainability']<85)
+                                                            echo('Not avaliable');
+                                                        else if($reliability['maintainability'][$i]['maintainability']<=99)
+                                                            echo('Ready to use');
+                                                        else
+                                                            echo('Avaliable');
+                                                    }
                                                 ?>
                                                 </td>
                                                 <?php } ?>

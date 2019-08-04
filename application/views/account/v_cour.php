@@ -318,6 +318,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th>Equipment Cost</th>
                                             <th>Labor Maintenance Cost</th>
                                             <th class="bg-primary" style="color:#fff;">COUR</th>
+                                            <th class="bg-primary" style="color:#fff;">Business Consequence</th>
                                         </thead>
                                         <tbody>
                                             <?php $no = 0; foreach($subsystems_from_asset as $sub) { ?>
@@ -328,6 +329,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo 'Rp '.number_format($sub->corrective_ec); ?></td>
                                                 <td><?php echo 'Rp '.number_format($sub->corrective_lmc); ?></td>
                                                 <td><?php echo 'Rp '.number_format($sub->corrective_cour); ?></td>
+                                                <td>
+                                                <?php 
+                                                    if(number_format($sub->corrective_cour) < 100000)
+                                                        echo ('Very low');
+                                                    else if(number_format($sub->corrective_cour) < 500000000)
+                                                        echo ('Low');
+                                                    else if(number_format($sub->corrective_cour) < 1000000000)
+                                                        echo ('Medium');
+                                                    else if(number_format($sub->corrective_cour) < 10000000000)
+                                                        echo ('High');
+                                                    else
+                                                        echo ('Very high');
+
+                                                ?>
+                                                </td>
                                             </tr>
                                             <?php $no++; } ?>
                                         </tbody>
@@ -353,6 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th>Equipment Cost</th>
                                             <th>Labor Maintenance Cost</th>
                                             <th class="bg-primary" style="color:#fff;">COUR </th>
+                                            <th class="bg-primary" style="color:#fff;">Business Consequence </th>
                                         </thead>
                                         <tbody>
                                             <?php $no = 0; foreach($subsystems_from_asset as $sub) { ?>
@@ -363,6 +380,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo 'Rp '.number_format($sub->downtime_ec); ?></td>
                                                 <td><?php echo 'Rp '.number_format($sub->downtime_lmc); ?></td>
                                                 <td><?php echo 'Rp '.number_format($sub->downtime_cour); ?></td>
+                                                <td>
+                                                <?php 
+                                                    if(number_format($sub->downtime_cour) < 100000)
+                                                        echo ('Very low');
+                                                    else if(number_format($sub->downtime_cour) < 500000000)
+                                                        echo ('Low');
+                                                    else if(number_format($sub->downtime_cour) < 1000000000)
+                                                        echo ('Medium');
+                                                    else if(number_format($sub->downtime_cour) < 10000000000)
+                                                        echo ('High');
+                                                    else
+                                                        echo ('Very high');
+
+                                                ?>
+                                                </td>
                                             </tr>
                                             <?php $no++; } ?>
                                         </tbody>
