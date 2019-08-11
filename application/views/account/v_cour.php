@@ -268,6 +268,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
 
 
+                    <div id='result_print'>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
@@ -404,7 +405,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-
+                    </div>
+                    <div class="container-fluid">
+                        <a class="btn btn-primary btn-fill" onclick="printDiv('result_print')" >Print result</a>
+                    </div>
                     <?php } ?>
 
 
@@ -493,17 +497,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             });
         });
 
-        // demo.initChartist();
-
-        // $.notify({
-        //     icon: 'pe-7s-gift',
-        //     message: "Welcome to <b>Proyek Ahkhir Dono</b> - s1 Teknik industri."
-
-        // }, {
-        //     type: 'info',
-        //     timer: 4000
-        // });
-
     });
 
 </script>
@@ -515,6 +508,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     function closeForm() {
         document.getElementById("myForm").style.display = "none";
+    }
+
+    function printDiv(divName){
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
     }
 
 </script>

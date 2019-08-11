@@ -116,34 +116,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </button>
                         <a class="navbar-brand" href="#">Reliability Availability Maintainability</a>
                     </div>
+                    <div class="col-md-8 ">
+                        <form method="POST" action="<?php echo base_url(); ?>index.php/ram/changeAsset" style="width: 50%; padding-top: 12px;" class="pull-right">
+                            <select onchange="this.form.submit()" class="form-control"  name="changed_asset">
+                                <option value="0"><?php echo '-- Pilih Asset Terlebih Dahulu --'; ?></option>
+                                <?php  foreach($assets as $asset) { ?>
+                                <option value="<?php echo $asset->id; ?>"><?php echo 'Plant - '.$asset->plant_id.' : '.$asset->name; ?></option>
+                                <?php } ?>
+                            </select>
+                        </form>
+                    </div>
                 </div>
             </nav>
 
 
             <div class="content">
                 <div class="container-fluid">
-                    <!-- <div class="row">
-                        <div align="center" class="col-md-12">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="card-body" style="padding:10px">
-                                            <h3 class="card-title">Reliability Availability Maintainability </h3>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        </div>
-
-                                        <div class="content">
-                                            <a href="#" class="btn btn-primary btn-fill">Download Data</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img class="card-img-bottom" src="<?php echo base_url()?>assets/img/ramilus.png" >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
+                    <div id='result_print'>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
@@ -151,17 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="row">
                                         <div class="col-md-6">
                                             <h4 class="title">Reliability</h4>
-                                            <p class="category">Here is a subtitle for this table</p>  
-                                        </div>
-                                        <div class="col-md-6">
-                                            <form method="POST" action="<?php echo base_url(); ?>index.php/ram/changeAsset" style="width: 50%;" class="pull-right">
-                                                <select onchange="this.form.submit()" class="form-control"  name="changed_asset">
-                                                    <option value="0"><?php echo '-- Pilih Asset Terlebih Dahulu --'; ?></option>
-                                                    <?php  foreach($assets as $asset) { ?>
-                                                    <option value="<?php echo $asset->id; ?>"><?php echo 'Plant - '.$asset->plant_id.' : '.$asset->name; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </form>
+                                            <p class="category">Detail of reliability of asset</p>  
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Maintainability</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
+                                    <p class="category">Detail of maintainability asset</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -286,7 +265,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Inherent Availability</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
+                                    <p class="category">Detail of inherent availability asset</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -329,7 +308,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Operational Availability</h4>
-                                    <p class="category">Here is a subtitle for this table</p>
+                                    <p class="category">Detail operational availability of asset</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -367,6 +346,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
 
+                </div>
+                </div>
+                <div class="container-fluid">
+                    <a class="btn btn-primary btn-fill" onclick="printDiv('result_print')" >Print result</a>
                 </div>
             </div>
 
@@ -409,10 +392,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url()?>assets/js/demo.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
 
-
-    });
+    function printDiv(divName){
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
 
 </script>
 
